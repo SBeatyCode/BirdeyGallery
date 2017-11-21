@@ -1,0 +1,25 @@
+.btn-birdey {
+    color: #fff;
+    background-color:  darkgreen;
+    text-shadow: none;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    padding: .5rem;
+}
+
+.btn-birdey:hover {
+    background: linear-gradient(darkgreen, green); 
+    color: white;
+}
+
+.btn-birdey:active {
+    position: relative;
+    top: 2px;
+}
+
+.btn-birdey:focus {
+    color: #fff;
+    background-color: darkgreen;
+    text-shadow: none;
+}

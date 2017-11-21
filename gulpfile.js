@@ -1,10 +1,11 @@
 let gulp = require('gulp'),
+webpack = require('webpack'),
 watch = require('gulp-watch'),
 postcss = require('gulp-postcss'),
 autoprefixer = require('autoprefixer'),
 cssVariables = require('postcss-simple-vars'),
 cssImport = require('postcss-import'),
-gulpConcat = require('gulp-concat'),
+//gulpConcat = require('gulp-concat'), wass using this to compile all the JS files into one file, but changed to using webpack
 uglify = require('gulp-uglify'),
 minifyCss = require('gulp-minify-css');
 
@@ -18,12 +19,11 @@ gulp.task('process-css', () => {
 });
 
 //task to process the js files and move them to the main js file location to be used by the site
-gulp.task('process-js', () => {
-    return gulp.src('./app-components/js/modules/*.js')
-    //support for css variables, autoprefixer
-    .pipe(gulpConcat('script.js'))
-//    .pipe(uglify())
-    .pipe(gulp.dest('./js'));
+gulp.task('process-js', (callback) => {
+    webpack(require('./webpack.config.js'), () => {
+        console.log('hello');
+        callback();
+    });
 });
 
 //the various gulp-watch watches, these call different functions when the files they're watching are triggered
