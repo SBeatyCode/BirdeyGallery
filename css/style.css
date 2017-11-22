@@ -405,12 +405,32 @@ table {
     border-spacing: 0;
 }
 
-/* ~~~~ Global Styles ~~~~*/
-
 * {
-    background: #fff;
-    font-family: Merriweather, serif;
     font-size: 1.1rem;
+    font-weight: 300;
+}
+
+body {
+    background-color: black;
+    background-image: url('../../../images/background/shady-forest-sm.jpg');
+    background-repeat: repeat;
+    background-size: auto;
+    background-position: top center;
+    color: white;
+    font-family: Merriweather, serif;
+}
+
+@media (min-width: 700px) {
+    body {
+        background-image: url('../../../images/background/shady-forest-md.jpg');
+    }
+}
+
+@media (min-width: 1200px) {
+    body {
+        background-image: url('../../../images/background/shady-forest-lg.jpg');
+        background-position: center;
+    }
 }
 
 .btn-birdey {
@@ -424,8 +444,8 @@ table {
 }
 
 .btn-birdey:hover {
-    background: -webkit-gradient(linear, left top, left bottom, from(darkgreen), to(green));
-    background: linear-gradient(darkgreen, green); 
+    background: -webkit-gradient(linear, left top, left bottom, from(darkgreen), to(#12a517));
+    background: linear-gradient(darkgreen, #12a517); 
     color: white;
 }
 
@@ -441,10 +461,140 @@ table {
 }
 
 .navbar {
-/*    styles go here, this is mostly a dummy file right now to practice css imports*/
-    color: green;
+    background-color: rgb(25, 25, 25);
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    padding: .5em 0 .5em 1em;
+    top: 0;
+    left: 0;
+}
+
+.navbar--mobile--brand {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar--mobile--menu-btn {
+    color: #fff;
+    cursor: pointer;
+    padding-left: 1rem;
+}
+
+.navbar-menu-item:hover {
+    color: #12a517;
+}
+
+.navbar--mobile--menu {
+    position: fixed;
+    height: 0;
+    width: 100%;
+    left: 0;
+    top: 2.3rem;
+    background-color: rgb(34, 34, 34);
+    text-align: center;
+}
+
+.navbar--mobile--menu--list {
+    list-style: none;
+    line-height: 1.5em;
+}
+
+.navbar--mobile--menu--list-item {
+    color: #fff;
+}
+
+.navbar--mobile--menu--list-item:hover {
+    color: #12a517;
 }
 
 .container {
+    margin-top: 2em;
     display: grid;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    grid-row-gap: 2em;
+    width: 100vw;
+/*
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 3fr;
+*/
+}
+
+@media (min-width: 560px) {
+    .container {
+
+    }
+}
+
+@media (min-width: 900px) {
+    .container {
+
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+
+    }
+}
+
+.header {
+    background-color: rgba(0, 0, 0, .5);
+    border: none;
+    padding: 1rem 0;
+    text-shadow: 2px 2px 2px #000000;
+    text-align: center;
+    margin-bottom: 2em;
+/*    width: 100%;*/
+}
+
+.header--text {
+    font-size: 1.2rem;
+}
+
+.main {
+    background-color: rgb(25, 25, 25);
+    text-align: center;
+    padding: 1.2rem 0;
+    margin-bottom: 4em;
+    width: 100vw;
+}
+
+.main--content {
+    padding: 0 1em;
+    line-height: 1.3rem;
+}
+
+@media (min-width: 900px) {
+    .main {
+        max-width: 70vw;
+    }
+    
+    .main--heading {
+        font-size: 1.5rem;
+    }
+    
+    .main--content {
+        padding: 0 2em;
+        line-height: 1.5rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .main {
+        max-width: 70vw;
+    }
+}
+
+.footer {
+    margin-top: 5em;
+    background-color: rgb(25, 25, 25);
+    text-align: center;
+    font-weight: 100;
+    font-size: .95rem;
 }

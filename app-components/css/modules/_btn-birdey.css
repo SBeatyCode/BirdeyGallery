@@ -1,5 +1,5 @@
 .btn-birdey {
-    color: #fff;
+    color: $basicWhite;
     background-color:  darkgreen;
     text-shadow: none;
     border: none;
@@ -9,7 +9,7 @@
 }
 
 .btn-birdey:hover {
-    background: linear-gradient(darkgreen, green); 
+    background: linear-gradient(darkgreen, $birdeyGreen); 
     color: white;
 }
 

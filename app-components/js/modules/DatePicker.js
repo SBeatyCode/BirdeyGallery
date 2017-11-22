@@ -3,6 +3,6 @@ $(document).ready(function() {
         showOtherMonths: true,
         selectOtherMonths: true,
         changeMonth: true,
-        changeYear: true;
+        changeYear: true
     });
 });
