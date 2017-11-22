@@ -8,7 +8,7 @@
         <header class="header--banner"><h1>Birdey Gallery</h1></header>
         <p class="header--text">
            Any subtext that goes below the main header
-        </p> <!-- /header--text -->
+        </p> <!-- /header-text -->
     </div> <!-- /header -->
     
     <div class="main">

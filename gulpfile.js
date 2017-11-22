@@ -13,8 +13,7 @@ minifyCss = require('gulp-minify-css');
 //task to process the css files and move them to the main css file location to be used by the site
 gulp.task('process-css', () => {
     return gulp.src('./app-components/css/style.css')
-    //support for css variables, autoprefixer
-    .pipe(postcss([cssImport, cssVariables, autoprefixer, minifyCss]))
+    .pipe(postcss([cssImport, cssVariables, autoprefixer]))
     .pipe(gulp.dest('./css'));
 });
 

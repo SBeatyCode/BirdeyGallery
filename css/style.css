@@ -479,6 +479,7 @@ body {
     color: #fff;
     cursor: pointer;
     padding-left: 1rem;
+    display: inline-block;
 }
 
 .navbar-menu-item:hover {
@@ -493,6 +494,8 @@ body {
     top: 2.3rem;
     background-color: rgb(34, 34, 34);
     text-align: center;
+    -webkit-transition: .8s;
+    transition: .8s;
 }
 
 .navbar--mobile--menu--list {
@@ -501,11 +504,61 @@ body {
 }
 
 .navbar--mobile--menu--list-item {
-    color: #fff;
+    color: #12a517;
+    display: none;
+    text-decoration: none;
 }
 
 .navbar--mobile--menu--list-item:hover {
-    color: #12a517;
+    color: #fff;
+}
+
+.navbar--menu-bar {
+    display: none;
+}
+
+@media (min-width: 900px) {
+    .navbar--mobile--menu-btn {
+        display: none;
+    }
+    
+    .navbar--mobile--menu {
+        display: none;
+    }
+    
+    .navbar--mobile--menu--list {
+        display: none;
+    }
+    
+    .navbar--mobile--brand {
+        font-size: 1.5rem;
+    }
+    
+    .navbar--menu-bar {
+        display: block;
+        margin-top: 1em;
+    }
+
+    .navbar--menu-bar--list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .navbar--menu-bar--list--item {
+        display: inline;
+        padding-right: 1rem;
+    }
+
+    .navbar-menubar-list-item--text {
+        color: #12a517;
+        text-decoration: none;
+    }
+
+    .navbar-menubar-list-item--text:hover {
+        color: #fff;
+    }
 }
 
 .container {
@@ -533,13 +586,13 @@ body {
 
 @media (min-width: 900px) {
     .container {
-
+        margin-top: 6em;
     }
 }
 
 @media (min-width: 1200px) {
     .container {
-
+        margin-top: 8em;
     }
 }
 
@@ -555,6 +608,12 @@ body {
 
 .header--text {
     font-size: 1.2rem;
+}
+
+@media (min-width: 1200px) {
+    .header {
+        font-size: 2rem;
+    }
 }
 
 .main {
