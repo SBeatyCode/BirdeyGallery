@@ -12,6 +12,15 @@
     font-size: 1.2rem;
 }
 
+.header--text--link {
+    color: $birdeyGreen;
+    text-decoration: none;
+}
+
+.header--text--link:hover {
+    color: purple;
+}
+
 @media (min-width: 1200px) {
     .header {
         font-size: 2rem;

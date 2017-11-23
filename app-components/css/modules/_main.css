@@ -4,6 +4,7 @@
     padding: 1.2rem 0;
     margin-bottom: 4em;
     width: 100vw;
+    align-self: center;
 }
 
 .main--content {
@@ -13,7 +14,8 @@
 
 @media (min-width: 900px) {
     .main {
-        max-width: 70vw;
+        max-width: 90%;
+        margin-left: 4.5%;
     }
     
     .main--heading {
@@ -28,6 +30,6 @@
 
 @media (min-width: 1200px) {
     .main {
-        max-width: 70vw;
+/*        max-width: 70vw;*/
     }
 }
