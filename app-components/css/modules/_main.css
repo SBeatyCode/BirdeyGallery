@@ -12,6 +12,26 @@
     line-height: 1.3rem;
 }
 
+.main--content--links {
+    list-style: none;
+}
+
+.main--content--links-line:hover {
+    background-color: $lighterMainGrey;
+    transition: .3s;
+}
+
+.main--content--links-item {
+    color: $birdeyGreen;
+    text-decoration: none;
+}
+
+.main--content--links-item:hover {
+    color: $basicWhite;
+    transition: .3s;
+}
+
+
 @media (min-width: 900px) {
     .main {
         max-width: 90%;

@@ -1,3 +1,11 @@
+/*<input type="button" class="btn-birdey" value="test">*/
+
+/*<a class="btn-birdey-wrapper" href=""><input type="button" class="btn-birdey" value="test"></a>*/
+
+.btn-birdey-wrapper {
+    text-decoration: none;
+}
+
 .btn-birdey {
     color: $basicWhite;
     background-color:  darkgreen;
@@ -11,6 +19,7 @@
 .btn-birdey:hover {
     background: linear-gradient(darkgreen, $birdeyGreen); 
     color: white;
+    transition: .4s;
 }
 
 .btn-birdey:active {

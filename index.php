@@ -14,19 +14,35 @@
     </div> <!-- /header -->
     
     <div class="main">
-        <h3 class="main--heading">Birdey Gallery</h3>
+        <h3 class="main--heading">Recent Art Postings</h3>
 
         <div class="main--content">
             <div class="frontpage-images">
-               <h3>Recent Art Postings</h3>
-
-                <img class="frontpage-images--image" id="image-1" src="images/art/polls_profiles_totakeke_3907_348576_xlarge_0419_833896_poll_xlarge.jpeg">
-                <img class="frontpage-images--image" id="image-2" src="images/art/polls_profiles_totakeke_3907_348576_xlarge_0419_833896_poll_xlarge.jpeg">
-                <img class="frontpage-images--image" id="image-3" src="images/art/polls_profiles_totakeke_3907_348576_xlarge_0419_833896_poll_xlarge.jpeg">
+                <div class="frontpage-images--image-wrapper">
+                    <a href=""><img class="frontpage-images--image" id="image-1" src="images/art/polls_profiles_totakeke_3907_348576_xlarge_0419_833896_poll_xlarge.jpeg"></a>
+                    <label>'KK Slider' by Nintendo</label>
+                </div> <!-- /frontpage-images--image-wrapper -->
+                
+                <div class="frontpage-images--image-wrapper">
+                    <a href=""><img class="frontpage-images--image" id="image-2" src="images/art/polls_profiles_totakeke_3907_348576_xlarge_0419_833896_poll_xlarge.jpeg"></a>
+                    <label>'KK Slider' by Nintendo</label>
+                </div> <!-- /frontpage-images--image-wrapper -->
+                
+                <div class="frontpage-images--image-wrapper">
+                    <a href=""><img class="frontpage-images--image" id="image-3" src="images/art/polls_profiles_totakeke_3907_348576_xlarge_0419_833896_poll_xlarge.jpeg"></a>
+                    <label>'KK Slider' by Nintendo</label>
+                </div> <!-- /frontpage-images--image-wrapper -->
+                
+                <div class="frontpage-images--image-wrapper">
+                    <a href=""><img class="frontpage-images--image" id="image-3" src="images/art/polls_profiles_totakeke_3907_348576_xlarge_0419_833896_poll_xlarge.jpeg"></a>
+                    <label>'KK Slider' by Nintendo</label>
+                </div> <!-- /frontpage-images--image-wrapper -->
             </div> <!-- /frontpage-images -->
+            
+            <p>
+                This is a paragragh that talks a little bit more about the site, maybe!
+            </p>
         </div> <!-- /content -->
-        
-        <input type="button" class="btn-birdey" value="test">
     </div> <!-- /main -->
 </div> <!-- /container -->
 

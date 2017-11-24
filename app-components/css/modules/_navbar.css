@@ -23,6 +23,7 @@
 
 .navbar-menu-item:hover {
     color: $birdeyGreen;
+    transition: .3s;
 }
 
 .navbar--mobile--menu {
@@ -49,6 +50,7 @@
 
 .navbar--mobile--menu--list-item:hover {
     color: $basicWhite;
+    transition: .3s;
 }
 
 .navbar--menu-bar {
@@ -96,5 +98,6 @@
 
     .navbar-menubar-list-item--text:hover {
         color: $basicWhite;
+        transition: .3s;
     }
 }
