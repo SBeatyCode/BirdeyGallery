@@ -1,0 +1,23 @@
+.flagged-comment {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    align-items: center;
+}
+
+.flagged-comment--commenter {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.flagged-comment--commenter--image {
+    max-width: 4rem;
+}
+
+.flagged-comment-action {
+    color: $birdeyGreen;
+    text-decoration: none;
+}

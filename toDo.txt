@@ -1,0 +1,62 @@
+Index
+-either the tree most recent, or the three most 'liked' if I decide to implement that are show on the front
+-add paragragh talking more about the site on the front page.
+
+Gallery
+-need to implement 'endless scrolling' feature to keep loading more art at the bottom of the page
+
+Profile/Gallery page
+-Like a Social-media-site, have all the user info on a side-bar, and then show the images in the main body
+of the site
+-If the user is looking at their page, they can edit any of their info or click and edit a peice of art
+
+
+Image View Page (for when a user is looking at a specific image)
+-this should be a modal that pops up, vs having to open a new page
+-Shows a larger veiw of the image, as well as comments by users (but if this is done via modal
+you'll have to add in buttons that let you view newer/older comments instead of doing an on-scroll thing
+-If the owner of an image is looking at this, they can delete a comment on their art
+-if it's NOT the owner, they can flag it.
+-Images with a flagged comment will have some kind of red text/background (maybe) and will be hidden from
+everyone except the image owner until it's deleted/approved.
+-If the person viewing a given comment was the one who posted that comment, then they will be able to edit it
+
+
+Notifications
+-Let's a user see all flagged comments on their artwork, and either unflag or delete them.
+(user avatar) - artwork name - comment - Approve - Delete
+(username)
+-Hook up the PHP so it deletes the comment - remember that you're trying to do everything through AJAX, so
+you'll need a php page/script that's being referenced outside this page to handle it so it can be updated
+without refreshing the page.
+
+
+Upload Art
+-VERY similar to the Birdey Art version. Just a pasge to let a user upload a new peice of art.
+-MIGHT make this into a modal. We'll see.
+
+
+Login Page
+-very similar to BirdeyArt version
+-just a pgae for a user to log in
+
+
+Logout
+-Doesn't need it's own page, just functionality
+-Again, VERY similar to BirdeyArt version
+
+
+Lost Password
+-In case a user forgets their password and needs to reset it
+-Can PROBABLY mostly reuse the pages from BirdeyArt, but may want to tweak the logic a bit. Users only need
+to anwser 3 questions now.
+
+
+LIKES System
+-Maybe add a 'like' system so users can like atrwork posted by others. The most liked images are featured on
+the front.
+
+
+GENERAL
+-Edit PHP SQL queries so that it works with the new fields and old fields i'm not using anymore
+aren't being referenced.

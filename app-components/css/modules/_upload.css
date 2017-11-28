@@ -1,0 +1,60 @@
+.upload-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.upload-section {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.upload-comment {
+    box-sizing: border-box;
+    max-width: 90%;
+}
+
+.upload-buttons {
+    margin-top: 2rem;
+}
+
+.upload-buttons--btn {
+    margin: 1rem;
+}
+
+@media(min-width: 500px) {
+    .upload-comment {
+        width: 20em;
+    }
+}
+
+@media (min-width: 560px) {
+    .upload-comment {
+        width: 30em;
+        height: 6em;
+    }
+    
+    .upload-section--label {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .upload-comment {
+        width: 35em;
+        height: 8em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .upload-comment {
+        width: 35em;
+        height: 8em;
+    }
+}

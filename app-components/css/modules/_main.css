@@ -31,6 +31,24 @@
     transition: .3s;
 }
 
+.main--filters {
+    color: $birdeyGreen;
+    list-style: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: .3s;
+    padding-right: .5rem;
+}
+
+.main--filters:hover {
+    color: $basicWhite;
+}
+
+.main--filters--spacing {
+    color: $birdeyGreen;
+    list-style: none;
+    display: inline-block;
+}
 
 @media (min-width: 900px) {
     .main {

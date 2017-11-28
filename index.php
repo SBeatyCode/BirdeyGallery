@@ -20,22 +20,22 @@
             <div class="frontpage-images">
                 <div class="frontpage-images--image-wrapper">
                     <a href=""><img class="frontpage-images--image" id="image-1" src="images/art/polls_profiles_totakeke_3907_348576_xlarge_0419_833896_poll_xlarge.jpeg"></a>
-                    <label>'KK Slider' by Nintendo</label>
+                    <label>'KK Slider' by <a class="frontpage-images--link" href="">Nintendo</a></label>
                 </div> <!-- /frontpage-images--image-wrapper -->
                 
                 <div class="frontpage-images--image-wrapper">
-                    <a href=""><img class="frontpage-images--image" id="image-2" src="images/art/polls_profiles_totakeke_3907_348576_xlarge_0419_833896_poll_xlarge.jpeg"></a>
-                    <label>'KK Slider' by Nintendo</label>
+                    <a href=""><img class="frontpage-images--image" id="image-2" src="images/art/birbsPage.jpg"></a>
+                    <label>'KK Slider' by <a class="frontpage-images--link" href="">Nintendo</a></label>
                 </div> <!-- /frontpage-images--image-wrapper -->
                 
                 <div class="frontpage-images--image-wrapper">
-                    <a href=""><img class="frontpage-images--image" id="image-3" src="images/art/polls_profiles_totakeke_3907_348576_xlarge_0419_833896_poll_xlarge.jpeg"></a>
-                    <label>'KK Slider' by Nintendo</label>
+                    <a href=""><img class="frontpage-images--image" id="image-3" src="images/art/birbsPage.jpg"></a>
+                    <label>'KK Slider' by <a class="frontpage-images--link" href="">Nintendo</a></label>
                 </div> <!-- /frontpage-images--image-wrapper -->
                 
                 <div class="frontpage-images--image-wrapper">
-                    <a href=""><img class="frontpage-images--image" id="image-3" src="images/art/polls_profiles_totakeke_3907_348576_xlarge_0419_833896_poll_xlarge.jpeg"></a>
-                    <label>'KK Slider' by Nintendo</label>
+                    <a href=""><img class="frontpage-images--image" id="image-4" src="images/art/polls_profiles_totakeke_3907_348576_xlarge_0419_833896_poll_xlarge.jpeg"></a>
+                    <label>'KK Slider' by <a class="frontpage-images--link" href="">Nintendo</a></label>
                 </div> <!-- /frontpage-images--image-wrapper -->
             </div> <!-- /frontpage-images -->
             

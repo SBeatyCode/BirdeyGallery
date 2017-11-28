@@ -101,13 +101,17 @@ var menuButton = document.getElementById('menu-button');
 var navitems = document.getElementsByClassName('navbar--mobile--menu--list-item');
 
 var toggleMenu = function toggleMenu() {
-    if (dropdownMenu.style.height == '8.5em') {
+    if (dropdownMenu.style.height == '14em' || dropdownMenu.style.height == '10.5em') {
         dropdownMenu.style.height = '0';
         for (var i = 0; i < navitems.length; i++) {
             navitems[i].style.display = 'none';
         }
     } else {
-        dropdownMenu.style.height = '8.5em';
+        if (navitems.length == 8) {
+            dropdownMenu.style.height = '14em';
+        } else {
+            dropdownMenu.style.height = '10.5em';
+        }
         setTimeout(function () {
             for (var _i = 0; _i < navitems.length; _i++) {
                 navitems[_i].style.display = 'block';

@@ -15,10 +15,11 @@
 .header--text--link {
     color: $birdeyGreen;
     text-decoration: none;
+    transition: .3s;
 }
 
 .header--text--link:hover {
-    color: purple;
+    color: $basicWhite;
 }
 
 @media (min-width: 1200px) {

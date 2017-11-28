@@ -1,0 +1,7 @@
+.input-birdey:focus {
+    border: 4 px solid $birdeyGreen;
+}
+
+.input-birdey:active {
+    border: 4 px solid $birdeyGreen;
+}
