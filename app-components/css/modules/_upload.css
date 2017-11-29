@@ -15,11 +15,6 @@
     text-align: center;
 }
 
-.upload-comment {
-    box-sizing: border-box;
-    max-width: 90%;
-}
-
 .upload-buttons {
     margin-top: 2rem;
 }
@@ -28,33 +23,28 @@
     margin: 1rem;
 }
 
-@media(min-width: 500px) {
-    .upload-comment {
-        width: 20em;
-    }
+.upload--link {
+    color: $birdeyGreen;
+    text-decoration: none;
+}
+
+.upload--link:hover {
+    color: $basicWhite;
+    transition: .3s;
 }
 
 @media (min-width: 560px) {
-    .upload-comment {
-        width: 30em;
-        height: 6em;
-    }
-    
     .upload-section--label {
         margin-bottom: 1rem;
     }
 }
 
 @media (min-width: 900px) {
-    .upload-comment {
-        width: 35em;
-        height: 8em;
+    .upload-section--label {
+        font-size: 1.3rem;
     }
-}
-
-@media (min-width: 1200px) {
-    .upload-comment {
-        width: 35em;
-        height: 8em;
+    
+    .upload-section {
+        margin-bottom: 2.5rem;
     }
 }

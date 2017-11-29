@@ -23,8 +23,6 @@
                 The name comes from the user 'birdeynamnam'. She's an artist that creates works using pencil, pens, watercolors, photography, and pixel art. Originally, this site was going to be called 'Birdey Art' as a showcase for her. However, she said that she'd prefer that the site was more of a community where everyone can post their art and offer friendly critique, all in a safe, respectiful envoirnment. Therefore, this is 'birdeynamnam's Gallery', or, the 'Birdey Gallery', in her honor.
             </p>
         </div> <!-- /content -->
-        
-        <input type="button" class="btn-birdey" value="test">
     </div> <!-- /main -->
 </div> <!-- /container -->
 

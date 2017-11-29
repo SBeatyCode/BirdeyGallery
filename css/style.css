@@ -433,51 +433,6 @@ body {
     }
 }
 
-/*<input type="button" class="btn-birdey" value="test">*/
-
-/*<a class="btn-birdey-wrapper" href=""><input type="button" class="btn-birdey" value="test"></a>*/
-
-.btn-birdey-wrapper {
-    text-decoration: none;
-}
-
-.btn-birdey {
-    color: #fff;
-    background-color:  darkgreen;
-    text-shadow: none;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    padding: .5rem;
-}
-
-.btn-birdey:hover {
-    background: -webkit-gradient(linear, left top, left bottom, from(darkgreen), to(#12a517));
-    background: linear-gradient(darkgreen, #12a517); 
-    color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-.btn-birdey:active {
-    position: relative;
-    top: 2px;
-}
-
-.btn-birdey:focus {
-    color: #fff;
-    background-color: darkgreen;
-    text-shadow: none;
-}
-
-.input-birdey:focus {
-    border: 4 px solid #12a517;
-}
-
-.input-birdey:active {
-    border: 4 px solid #12a517;
-}
-
 .navbar {
     background-color: rgb(25, 25, 25);
     color: #fff;
@@ -582,6 +537,84 @@ body {
         color: #fff;
         -webkit-transition: .3s;
         transition: .3s;
+    }
+}
+
+/*<input type="button" class="btn-birdey" value="test">*/
+
+/*<a class="btn-birdey-wrapper" href=""><input type="button" class="btn-birdey" value="test"></a>*/
+
+.btn-birdey-wrapper {
+    text-decoration: none;
+}
+
+.btn-birdey {
+    color: #fff;
+    background-color:  darkgreen;
+    text-shadow: none;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    padding: .5rem;
+}
+
+.btn-birdey:hover {
+    background: -webkit-gradient(linear, left top, left bottom, from(darkgreen), to(#12a517));
+    background: linear-gradient(darkgreen, #12a517); 
+    color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.btn-birdey:active {
+    position: relative;
+    top: 2px;
+}
+
+.btn-birdey:focus {
+    color: #fff;
+    background-color: darkgreen;
+    text-shadow: none;
+}
+
+.input-birdey:focus {
+    border: 4 px solid #12a517;
+}
+
+.input-birdey:active {
+    border: 4 px solid #12a517;
+}
+
+.responsive-textarea {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    max-width: 90%;
+}
+
+@media(min-width: 500px) {
+    .responsive-textarea {
+        width: 20em;
+    }
+}
+
+@media(min-width: 560px) {
+    .responsive-textarea {
+        width: 30em;
+        height: 6em;
+    }
+}
+
+@media (min-width: 900px) {
+    .responsive-textarea {
+        width: 35em;
+        height: 8em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .responsive-textarea {
+        width: 35em;
+        height: 8em;
     }
 }
 
@@ -911,14 +944,29 @@ body {
     }
 }
 
+.flagged-comment--wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
 .flagged-comment {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
+    -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     -ms-flex-line-pack: justify;
@@ -926,6 +974,7 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    margin-bottom: 2rem;
 }
 
 .flagged-comment--commenter {
@@ -940,12 +989,33 @@ body {
 }
 
 .flagged-comment--commenter--image {
-    max-width: 4rem;
+    max-width: 5rem;
 }
 
 .flagged-comment-action {
     color: #12a517;
     text-decoration: none;
+    padding: 1rem;
+}
+
+.flagged-comment-action:hover {
+    color: #fff;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+@media(min-width: 900px) {
+    .flagged-comment {
+        margin-bottom: 3rem;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+            -ms-flex-direction: row-reverse;
+                flex-direction: row-reverse;
+    }
+    
+    .flagged-comment--commenter {
+        margin-right: 1rem;
+    }
 }
 
 .upload-wrapper {
@@ -981,12 +1051,6 @@ body {
     text-align: center;
 }
 
-.upload-comment {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    max-width: 90%;
-}
-
 .upload-buttons {
     margin-top: 2rem;
 }
@@ -995,34 +1059,174 @@ body {
     margin: 1rem;
 }
 
-@media(min-width: 500px) {
-    .upload-comment {
-        width: 20em;
-    }
+.upload--link {
+    color: #12a517;
+    text-decoration: none;
+}
+
+.upload--link:hover {
+    color: #fff;
+    -webkit-transition: .3s;
+    transition: .3s;
 }
 
 @media (min-width: 560px) {
-    .upload-comment {
-        width: 30em;
-        height: 6em;
-    }
-    
     .upload-section--label {
         margin-bottom: 1rem;
     }
 }
 
 @media (min-width: 900px) {
-    .upload-comment {
-        width: 35em;
-        height: 8em;
+    .upload-section--label {
+        font-size: 1.3rem;
+    }
+    
+    .upload-section {
+        margin-bottom: 2.5rem;
+    }
+}
+
+.profile-wrapper {
+    background-color: rebeccapurple;
+    color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+}
+
+.profile--pic {
+    max-width: 10rem;
+}
+
+.profile--info {
+    background-color: rgb(34, 34, 34);
+    width: 100vw;
+}
+
+.profile-edit {
+    color: #12a517;
+    cursor: pointer;
+}
+
+.profile-edit:hover {
+    color: #fff;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.profile-gallery {
+    background-color: rgb(25, 25, 25);
+    padding-bottom:  2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.frontpage-images {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-line-pack: distribute;
+        align-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.profile-gallery--image-wrapper {
+    margin-top: 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-line-pack: center;
+        align-content: center;
+}
+
+.profile-gallery--image {
+    max-width: 13rem;
+}
+
+@media (min-width: 900px) {
+    .profile-wrapper {
+        display: block;
+        position: fixed;
+        top: 8em;
+        left: 1em;
+        max-width: 30rem;
+        height: 35rem;
+        padding-right: 1.5rem;
+        margin-right: 1rem;
+    }
+    
+    .profile--info {
+        padding: 1.5rem;
+        margin-top: 1rem;
+        margin-left: 1.5em;
+        margin-bottom: 1rem;
+        width: 15em;
+    }
+    
+    .profile-gallery {
+        margin-left: 50%;
+        margin-right: 2em;
+        width: 48vw;
+    }
+    
+    .profile-gallery--image-wrapper {
+        margin-left: 2rem;
+        margin-right: 1rem;
+    }
+    
+    .profile-gallery--image {
+        max-width: 15.625rem;
     }
 }
 
 @media (min-width: 1200px) {
-    .upload-comment {
-        width: 35em;
-        height: 8em;
+    .profile-wrapper {
+        top: 10.2em;
+        height: 35rem;
+    }
+    
+    .profile-gallery {
+        margin-left: 40%;
+        width: 55vw;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
     }
 }
 
@@ -1032,4 +1236,5 @@ body {
     text-align: center;
     font-weight: 100;
     font-size: .95rem;
+    z-index: 1;
 }

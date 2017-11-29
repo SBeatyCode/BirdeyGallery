@@ -28,7 +28,7 @@
                     </div> <!-- /upload-section -->
                     
                     <div class='upload-section'>
-                       <label class='upload-section--label' for="artTag">Select a tag for your art</label>
+                       <label class='upload-section--label' for="artTag">Select a Tag For Your Art</label>
                         <select id="artTag">
                             <option>Painting</option>
                             <option>Watercolor</option>
@@ -48,7 +48,7 @@
 
                     <div class='upload-section'>
                         <label class='upload-section--label' for="description">Write a description</label>
-                        <textarea class='upload-comment' placeholder="Say something about the piece here..." name="description"></textarea>
+                        <textarea class='responsive-textarea' placeholder="Say something about the piece here..." name="description"></textarea>
                     </div> <!-- /upload-section -->
 
                     <div class='upload-buttons'>

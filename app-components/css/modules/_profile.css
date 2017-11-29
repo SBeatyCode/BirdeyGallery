@@ -1,0 +1,106 @@
+.profile-wrapper {
+    background-color: rebeccapurple;
+    color: $basicWhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.profile--pic {
+    max-width: 10rem;
+}
+
+.profile--info {
+    background-color: $lighterMainGrey;
+    width: 100vw;
+}
+
+.profile-edit {
+    color: $birdeyGreen;
+    cursor: pointer;
+}
+
+.profile-edit:hover {
+    color: $basicWhite;
+    transition: .3s;
+}
+
+.profile-gallery {
+    background-color: $mainGrey;
+    padding-bottom:  2rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.frontpage-images {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    align-items: center;
+}
+
+.profile-gallery--image-wrapper {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.profile-gallery--image {
+    max-width: 13rem;
+}
+
+@media (min-width: 900px) {
+    .profile-wrapper {
+        display: block;
+        position: fixed;
+        top: 8em;
+        left: 1em;
+        max-width: 30rem;
+        height: 35rem;
+        padding-right: 1.5rem;
+        margin-right: 1rem;
+    }
+    
+    .profile--info {
+        padding: 1.5rem;
+        margin-top: 1rem;
+        margin-left: 1.5em;
+        margin-bottom: 1rem;
+        width: 15em;
+    }
+    
+    .profile-gallery {
+        margin-left: 50%;
+        margin-right: 2em;
+        width: 48vw;
+    }
+    
+    .profile-gallery--image-wrapper {
+        margin-left: 2rem;
+        margin-right: 1rem;
+    }
+    
+    .profile-gallery--image {
+        max-width: 15.625rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .profile-wrapper {
+        top: 10.2em;
+        height: 35rem;
+    }
+    
+    .profile-gallery {
+        margin-left: 40%;
+        width: 55vw;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}

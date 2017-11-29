@@ -1,10 +1,10 @@
-
 @import "normalize-css";
 @import "modules/_cssVariables";
 @import "modules/globalStyles";
+@import "modules/_navbar";
 @import "modules/_btn-birdey";
 @import "modules/_input-birdey";
-@import "modules/_navbar";
+@import "modules/_responsive-textarea";
 @import "modules/_container";
 @import "modules/_header";
 @import "modules/_main";
@@ -12,4 +12,5 @@
 @import "modules/_gallery-images";
 @import "modules/_flagged-comment";
 @import "modules/_upload";
+@import "modules/_profile";
 @import "modules/_footer";

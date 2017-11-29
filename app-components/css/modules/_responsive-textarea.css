@@ -1,0 +1,32 @@
+.responsive-textarea {
+    box-sizing: border-box;
+    max-width: 90%;
+}
+
+@media(min-width: 500px) {
+    .responsive-textarea {
+        width: 20em;
+    }
+}
+
+@media(min-width: 560px) {
+    .responsive-textarea {
+        width: 30em;
+        height: 6em;
+    }
+}
+
+
+@media (min-width: 900px) {
+    .responsive-textarea {
+        width: 35em;
+        height: 8em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .responsive-textarea {
+        width: 35em;
+        height: 8em;
+    }
+}

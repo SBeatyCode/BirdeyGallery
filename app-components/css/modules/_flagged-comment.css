@@ -1,9 +1,17 @@
+.flagged-comment--wrapper {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
 .flagged-comment {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     align-content: space-between;
     align-items: center;
+    margin-bottom: 2rem;
 }
 
 .flagged-comment--commenter {
@@ -14,10 +22,27 @@
 
 
 .flagged-comment--commenter--image {
-    max-width: 4rem;
+    max-width: 5rem;
 }
 
 .flagged-comment-action {
     color: $birdeyGreen;
     text-decoration: none;
+    padding: 1rem;
+}
+
+.flagged-comment-action:hover {
+    color: $basicWhite;
+    transition: .3s;
+}
+
+@media(min-width: 900px) {
+    .flagged-comment {
+        margin-bottom: 3rem;
+        flex-direction: row-reverse;
+    }
+    
+    .flagged-comment--commenter {
+        margin-right: 1rem;
+    }
 }

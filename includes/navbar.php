@@ -23,7 +23,7 @@
                     <li class="navbar--menu-bar--list--item"><a class="navbar-menubar-list-item--text" href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</a></li>
 -->
                     
-                    <li class="navbar--menu-bar--list--item"><a class="navbar-menubar-list-item--text" href="#"><i class="fa fa-id-card" aria-hidden="true"></i> Profile</a></li>
+                    <li class="navbar--menu-bar--list--item"><a class="navbar-menubar-list-item--text" href="profile.php"><i class="fa fa-id-card" aria-hidden="true"></i> Profile</a></li>
                     
                     <li class="navbar--menu-bar--list--item"><a class="navbar-menubar-list-item--text" href="upload-art.php"><i class="fa fa-plus-square" aria-hidden="true"></i> Upload Art</a></li>
                     
@@ -57,7 +57,7 @@
             <li><a class="navbar--mobile--menu--list-item" href="#"><i class="fa fa-user-plus" aria-hidden="true"></i> Sign Up</a></li>
             <li><a class="navbar--mobile--menu--list-item" href="#"><i class="fa fa-sign-in" aria-hidden="true"></i> Log In</a></li>
 -->
-            <li><a class="navbar--mobile--menu--list-item" href="#"><i class="fa fa-id-card" aria-hidden="true"></i> Profile</a></li>
+            <li><a class="navbar--mobile--menu--list-item" href="profile.php"><i class="fa fa-id-card" aria-hidden="true"></i> Profile</a></li>
             <li><a class="navbar--mobile--menu--list-item" href="upload-art.php"><i class="fa fa-plus-square" aria-hidden="true"></i> Upload Art</a></li>
             <li><a class="navbar--mobile--menu--list-item" href="notifications.php"><i class='fa fa-envelope' aria-hidden='true'></i> Notifications</a></li>
             <li><a class="navbar--mobile--menu--list-item" href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a></li>
