@@ -33,9 +33,18 @@
     transition: .3s;
 }
 
+.upload-section-img {
+    max-width: 13rem;
+    margin-bottom: 1em;
+}
+
 @media (min-width: 560px) {
     .upload-section--label {
         margin-bottom: 1rem;
+    }
+    
+    .upload-section-img {
+         max-width: 15.625rem;
     }
 }
 

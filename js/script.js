@@ -72,6 +72,7 @@
 
 var DatePicker = __webpack_require__(1);
 var navbarMenu = __webpack_require__(2);
+var modal = __webpack_require__(3);
 
 /***/ }),
 /* 1 */
@@ -121,6 +122,40 @@ var toggleMenu = function toggleMenu() {
 };
 
 menuButton.addEventListener('click', toggleMenu);
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+//Getting the images, the modal close button, the modal image, and the modal
+var profile_images_Array = Array.from(document.getElementsByClassName('profile-gallery--image'));
+var closeBtn = document.getElementById('modal-close');
+var modal = document.getElementById('modal');
+var modal_image = document.getElementById('modal-image');
+
+//method to open the modal and disply the clicked image
+var openModal = function openModal(e) {
+    if (e.target.className == 'profile-gallery--image') {
+        var src = e.target.getAttribute('src');
+        modal_image.setAttribute('src', src);
+        modal.style.display = 'flex';
+    }
+};
+
+//method to close the modal when the close button is clicked
+var closeModal = function closeModal() {
+    modal.style.display = 'none';
+};
+
+//add the event listeners on the close button, and all of the images in the image array
+closeBtn.addEventListener('click', closeModal);
+
+for (var i = 0; i < profile_images_Array.length; i++) {
+    profile_images_Array[i].addEventListener('click', openModal);
+}
 
 /***/ })
 /******/ ]);

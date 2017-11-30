@@ -1,3 +1,10 @@
+May need to make
+-edit-Art (or you could just have built-in edit functions on the page if it's the user's art they're viewing)
+-imageView Page, or modal
+-lostPassword/passwordRest Pages
+-instead of edit-comment, user's can just edit their own comment when they come across a comment they've posted
+
+
 Index
 -either the tree most recent, or the three most 'liked' if I decide to implement that are show on the front
 -add paragragh talking more about the site on the front page.

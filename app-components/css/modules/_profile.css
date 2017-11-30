@@ -1,15 +1,21 @@
+.profile-container {
+    margin-top: 2em;
+}
+
 .profile-wrapper {
-    background-color: rebeccapurple;
+    background-color: #035100;
     color: $basicWhite;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin-bottom: 2em;
 }
 
 .profile--pic {
     max-width: 10rem;
+    border-radius: 50%;
 }
 
 .profile--info {
@@ -53,32 +59,34 @@
 
 .profile-gallery--image {
     max-width: 13rem;
+    cursor: pointer;
 }
 
 @media (min-width: 900px) {
+    .profile-container {
+        display: flex;
+        flex-direction: row;
+    }
+    
     .profile-wrapper {
         display: block;
-        position: fixed;
-        top: 8em;
-        left: 1em;
-        max-width: 30rem;
+        width: 20rem;
         height: 35rem;
+        margin-top: -1.275em;
         padding-right: 1.5rem;
         margin-right: 1rem;
     }
     
     .profile--info {
         padding: 1.5rem;
-        margin-top: 1rem;
-        margin-left: 1.5em;
-        margin-bottom: 1rem;
+        margin: 1rem;
         width: 15em;
     }
     
     .profile-gallery {
-        margin-left: 50%;
+        margin-left: 8em;
         margin-right: 2em;
-        width: 48vw;
+        width: 40vw;
     }
     
     .profile-gallery--image-wrapper {
@@ -91,15 +99,9 @@
     }
 }
 
-@media (min-width: 1200px) {
-    .profile-wrapper {
-        top: 10.2em;
-        height: 35rem;
-    }
+@media (min-width: 1576px) {
     
     .profile-gallery {
-        margin-left: 40%;
-        width: 55vw;
         flex-direction: row;
         flex-wrap: wrap;
     }
