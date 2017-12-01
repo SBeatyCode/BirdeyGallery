@@ -637,10 +637,6 @@ body {
 */
 }
 
-@media (min-width: 560px) {
-
-}
-
 @media (min-width: 900px) {
     .container {
         margin-top: 6em;
@@ -682,6 +678,21 @@ body {
     .header {
         font-size: 2rem;
     }
+}
+
+.confirmation-message-container {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.confirmation-message-fail {
+    padding: 1.5rem 0;
+    background-color: #a50000;
+}
+
+.confirmation-message-success {
+    padding: 1.5rem 0;
+    background-color: #0b700d;
 }
 
 .main {
@@ -1100,7 +1111,7 @@ body {
 }
 
 .profile-wrapper {
-    background-color: #035100;
+    background-color: #0b700d;
     color: #fff;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1206,21 +1217,22 @@ body {
     .profile-wrapper {
         display: block;
         width: 20rem;
-        height: 35rem;
+        height: 34rem;
         margin-top: -1.275em;
         padding-right: 1.5rem;
         margin-right: 1rem;
+        margin-left: -4em;
     }
     
     .profile--info {
         padding: 1.5rem;
-        margin: 1rem;
-        width: 15em;
+        margin-top: 1rem;
+        width: 16.85em;
     }
     
     .profile-gallery {
-        margin-left: 8em;
-        margin-right: 2em;
+        margin-left: 6em;
+        margin-right: 1em;
         width: 40vw;
     }
     
@@ -1243,6 +1255,8 @@ body {
                 flex-direction: row;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
+        margin-right: 0;
+        width: 55vw;
     }
 }
 

@@ -1,6 +1,9 @@
+Finish adding the other forms to the form validation on signup.js
+Have an error message of some sort pop up if a form doesn't validate.
+Have the signup-action-php page do what it needs to make a new user
+
+
 May need to make
--edit-Art (or you could just have built-in edit functions on the page if it's the user's art they're viewing)
--imageView Page, or modal
 -lostPassword/passwordRest Pages
 -instead of edit-comment, user's can just edit their own comment when they come across a comment they've posted
 

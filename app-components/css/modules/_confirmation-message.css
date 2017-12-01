@@ -1,0 +1,14 @@
+.confirmation-message-container {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.confirmation-message-fail {
+    padding: 1.5rem 0;
+    background-color: $birdeyAlert;
+}
+
+.confirmation-message-success {
+    padding: 1.5rem 0;
+    background-color: $darkerBirdeyGreen;
+}

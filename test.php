@@ -1,17 +1,18 @@
 <?php session_start(); ?>
 <?php include 'includes/config.php'; ?> 
-<?php include 'includes/header.php'; ?>
-<?php include 'includes/navbar.php'; ?>
 
-<div class="container" id='signup-container'>
-    <div class="header" id='signup-header'>
+    <div class="header">
         <header class="header--banner"><h1>Sign Up</h1></header>
         <p class="header--text">
            Register Your New Account Here!
         </p> <!-- /header-text -->
+        
+        <div class='confirmation-message-container'>
+            <h3 class='confirmation-message-fail'>Your Something Has Been Done!</h3>
+        </div>
     </div> <!-- /header -->
     
-    <div class="main" id='signup-main'>
+    <div class="main">
         <h3 class="main--heading">Please Fill the Following Information to Create Your Account</h3>
         <p>
            <em>
@@ -20,10 +21,10 @@
        </p>
         <div class="main--content">
             <div class='upload-wrapper'>
-              <form enctype="multipart/form-data" method="post" name="signupForm">
+              <form enctype="multipart/form-data" method="post">
                     <div class='upload-section'>
                         <label class='upload-section--label' for="name">Name</label>
-                        <input class="form-control" type="text" placeholder="Your Name" name="name" id='submit-name'>
+                        <input class="form-control" type="text" placeholder="Your Name" name="name">
                     </div> <!-- /upload-section -->
 
                     <div class='upload-section'>
@@ -49,7 +50,7 @@
                     
                     <div class='upload-section'>
                         <label class='upload-section--label' for="about">About Me</label>
-                        <textarea class='responsive-textarea' placeholder="Say something about yourself here, no more than 200 characters." name="about" maxlength="200"></textarea>
+                        <textarea class='responsive-textarea' placeholder="Say something about yourself here, no more than 200 characters." name="about"></textarea>
                     </div> <!-- /upload-section -->
 
                    <div class='upload-section'>
@@ -70,11 +71,6 @@
                        <label class='upload-section--label' for="born_at">Where were you born?</label>
                        <input type="text" class="form-control" name="born_at" placeholder="Your Anwser">
                    </div> <!-- /upload-section -->
-
-                    <div class='upload-buttons'>
-                        <button class="btn-birdey upload-buttons--btn" type="reset" name="reset">Reset</button>
-                        <button class="btn-birdey upload-buttons--btn" id='signup-submit' type="button" name="submit">Submit</button>
-                    </div> <!-- /upload-section -->
                     
                     <footer>
                        <em>
@@ -85,7 +81,4 @@
             </div> <!-- /upload-wrapper -->
         </div> <!-- /content -->
     </div> <!-- /main -->
-</div> <!-- /container -->
-
-
-<?php include 'includes/footer.php'; ?>
+?>

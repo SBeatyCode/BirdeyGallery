@@ -7,6 +7,7 @@
 @import "modules/_responsive-textarea";
 @import "modules/_container";
 @import "modules/_header";
+@import "modules/_confirmation-message";
 @import "modules/_main";
 @import "modules/_frontpage-images";
 @import "modules/_gallery-images";

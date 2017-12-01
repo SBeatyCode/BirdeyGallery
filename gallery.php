@@ -71,8 +71,6 @@
                 </div> <!-- /gallery-images--image-wrapper -->
             </div> <!-- /gallery-images -->
         </div> <!-- /content -->
-        
-        <input type="button" class="btn-birdey" value="test">
     </div> <!-- /main -->
 </div> <!-- /container -->
 

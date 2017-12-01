@@ -14,7 +14,7 @@
                         <div>Username</div>
                         <div>Number of art pieces: [4]</div>
                         <div class='profile--about'>
-                            <p>THis is where a user would write a short descripton of themselves, like around 200ish characters or so. Just a quick hello! THis is where a user would write a short descripton of themselves, like around 200ish characters or so. Just a quick hello! </p>
+                            <p>This is a test to see about how big 200 characters is. I want to see how this section reacts so i can get a better idea of what to expect. Meow meow!! Meow meow!! Meow meow!! Meow meow!! Meow meow!! M </p>
                         </div>
 
                          <!-- THis edit button only shows up if the user is the one logged in - use PHP -->
@@ -52,5 +52,6 @@
     </div> <!-- /modal-box -->
 </div> <!-- /modal -->
 
+<script src="js/modal.js"></script>
 
 <?php include 'includes/footer.php'; ?>

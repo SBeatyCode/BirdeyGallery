@@ -70,12 +70,27 @@
 "use strict";
 
 
-var DatePicker = __webpack_require__(1);
-var navbarMenu = __webpack_require__(2);
-var modal = __webpack_require__(3);
+var functions = __webpack_require__(1);
+var DatePicker = __webpack_require__(2);
+var navbarMenu = __webpack_require__(3);
+var signup = __webpack_require__(4);
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var validateForm = function validateForm(formElement) {
+    formElement.trim();
+    if (formElement == "") {
+        return false;
+    }
+};
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -91,7 +106,7 @@ $(document).ready(function () {
 });
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -124,38 +139,52 @@ var toggleMenu = function toggleMenu() {
 menuButton.addEventListener('click', toggleMenu);
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-//Getting the images, the modal close button, the modal image, and the modal
-var profile_images_Array = Array.from(document.getElementsByClassName('profile-gallery--image'));
-var closeBtn = document.getElementById('modal-close');
-var modal = document.getElementById('modal');
-var modal_image = document.getElementById('modal-image');
+$(document).ready(function () {
+    //variable to check if the fields on the form has been validated. Only run AJAX call if it's true
+    var formsValidated = false;
 
-//method to open the modal and disply the clicked image
-var openModal = function openModal(e) {
-    if (e.target.className == 'profile-gallery--image') {
-        var src = e.target.getAttribute('src');
-        modal_image.setAttribute('src', src);
-        modal.style.display = 'flex';
-    }
-};
+    //function to see if a given form element is empty or not
+    var validateForm = function validateForm(formElement) {
+        //        console.log(formElement);
+        if (formElement.trim() == "") {
+            return false;
+        } else {
+            return true;
+        }
+    };
 
-//method to close the modal when the close button is clicked
-var closeModal = function closeModal() {
-    modal.style.display = 'none';
-};
+    $('#signup-submit').click(function () {
 
-//add the event listeners on the close button, and all of the images in the image array
-closeBtn.addEventListener('click', closeModal);
+        var testVal = $('#submit-name').val();
 
-for (var i = 0; i < profile_images_Array.length; i++) {
-    profile_images_Array[i].addEventListener('click', openModal);
-}
+        if (validateForm(testVal)) {
+            formsValidated = true;
+        };
+        //if the forms are validated, then process the AJAX request.
+        if (formsValidated) {
+            $.ajax({
+                method: "POST",
+                url: "../test.php"
+            }).done(function (data) {
+                //            console.log(data);
+                $('#signup-header').remove();
+                $('#signup-main').remove();
+                $('#signup-container').append(data);
+                window.scrollTo(0, 0);
+            }).fail(function () {
+                alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+            });
+        } else {
+            //return an error message
+        }
+    });
+});
 
 /***/ })
 /******/ ]);
