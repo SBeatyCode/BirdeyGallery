@@ -1,5 +1,4 @@
-Finish adding the other forms to the form validation on signup.js
-Have an error message of some sort pop up if a form doesn't validate.
+Make a default value for the 'about' field for ba_users - about should be optional. Maybe image also?
 Have the signup-action-php page do what it needs to make a new user
 
 

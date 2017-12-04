@@ -77,6 +77,8 @@
         
         if($noErrors) {
             //display confirmation and the rest of the page
+        } else {
+            //display the original page - maybe just include it here?
         }
 
     ?>

@@ -23,33 +23,37 @@
               <form enctype="multipart/form-data" method="post" name="signupForm">
                     <div class='upload-section'>
                         <label class='upload-section--label' for="name">Name</label>
-                        <input class="form-control" type="text" placeholder="Your Name" name="name" id='submit-name'>
+                        <label class='error-message' id='name-error'></label>
+                        <input type="text" placeholder="Your Name" name="name" id='signup-name'>
                     </div> <!-- /upload-section -->
 
                     <div class='upload-section'>
                         <label class='upload-section--label' for="username">Username</label>
-                        <input class="form-control" type="text" placeholder="Username (others will see this)" name="username">
+                        <label class='error-message' id='username-error'></label>
+                        <input type="text" placeholder="Username (others will see this)" name="username" id='signup-username'>
                     </div> <!-- /upload-section -->
 
                     <div class='upload-section'>
                         <label class='upload-section--label' for="password">Password</label>
-                        <input class="form-control" type="password" placeholder="Password" name="password">
+                        <label class='error-message' id='password-error'></label>
+                        <input type="password" placeholder="Password" name="password" id='signup-password'>
                     </div> <!-- /upload-section -->
                         
                     <div class='upload-section'>
                         <label class='upload-section--label' for="artDate">Date of Birth </label>
-                        <input type="date" class="date" name="dob">
-                        <small>We will never use or share your date of birth. This is purely for identification purposes.</small>
+                        <label class='error-message' id='dob-error'></label>
+                        <input type="date" class="date" name="dob" id='signup-dob'>
                     </div> <!-- /upload-section -->
                       
                     <div class='upload-section'>
-                       <label class='upload-section--label' for="image">Choose an image to upload as an avatar: </label>
+                       <label class='upload-section--label' for="image">Choose an image to upload as a profile image: </label>
                        <input type="file" name="image">
+                       <small>~Adding a profile image is optional~</small>
                     </div> <!-- /upload-section -->
                     
                     <div class='upload-section'>
                         <label class='upload-section--label' for="about">About Me</label>
-                        <textarea class='responsive-textarea' placeholder="Say something about yourself here, no more than 200 characters." name="about" maxlength="200"></textarea>
+                        <textarea class='responsive-textarea' placeholder="Say something about yourself here, in 200 characters or less. This is optional, but it's fun to share a little something about who you are!" name="about" id='signup-about' maxlength="200"></textarea>
                     </div> <!-- /upload-section -->
 
                    <div class='upload-section'>
@@ -58,17 +62,20 @@
                     
                     <div class='upload-section'>
                        <label class='upload-section--label' for="fave_pet">What's your favorite animal or pet?</label>
-                       <input type="text" class="form-control" name="fave_pet" placeholder="Your Anwser">
+                       <label class='error-message' id='fave-pet-error'></label>
+                       <input type="text" name="fave_pet" id="signup-fave_pet" placeholder="Your Anwser">
                    </div> <!-- /upload-section -->
 
                    <div class='upload-section'>
                        <label class='upload-section--label' for="fave_food">What's your favorite food?</label>
-                       <input type="text" class="form-control" name="fave_food" placeholder="Your Anwser">
+                       <label class='error-message' id='fave-food-error'></label>
+                       <input type="text" name="fave_food" id="signup-fave_food" placeholder="Your Anwser">
                    </div> <!-- /upload-section -->
 
                    <div class='upload-section'>
                        <label class='upload-section--label' for="born_at">Where were you born?</label>
-                       <input type="text" class="form-control" name="born_at" placeholder="Your Anwser">
+                       <label class='error-message' id='born-at-error'></label>
+                       <input type="text" name="born_at" id="signup-born_at" placeholder="Your Anwser">
                    </div> <!-- /upload-section -->
 
                     <div class='upload-buttons'>

@@ -15,4 +15,5 @@
 @import "modules/_upload";
 @import "modules/_profile";
 @import "modules/_modal";
+@import "modules/_error-message";
 @import "modules/_footer";

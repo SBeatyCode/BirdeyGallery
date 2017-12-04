@@ -82,11 +82,10 @@ var signup = __webpack_require__(4);
 "use strict";
 
 
-var validateForm = function validateForm(formElement) {
-    formElement.trim();
-    if (formElement == "") {
-        return false;
-    }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var functions = function functions() {
+    _classCallCheck(this, functions);
 };
 
 /***/ }),
@@ -147,27 +146,54 @@ menuButton.addEventListener('click', toggleMenu);
 
 $(document).ready(function () {
     //variable to check if the fields on the form has been validated. Only run AJAX call if it's true
-    var formsValidated = false;
+    var formsValidated = 0;
 
-    //function to see if a given form element is empty or not
-    var validateForm = function validateForm(formElement) {
+    //function to see if a given form element is empty or not, takes an input, and a label
+    var validateForm = function validateForm(formElement, errorElement) {
         //        console.log(formElement);
         if (formElement.trim() == "") {
+            errorElement.html('*~~ You must enter a value in the field. ~~*');
             return false;
         } else {
+            errorElement.html('');
             return true;
         }
     };
 
+    //validate all the fields
+
     $('#signup-submit').click(function () {
 
-        var testVal = $('#submit-name').val();
+        if (validateForm($('#signup-name').val(), $('#name-error'))) {
+            formsValidated += 1;
+        }
 
-        if (validateForm(testVal)) {
-            formsValidated = true;
-        };
+        if (validateForm($('#signup-username').val(), $('#username-error'))) {
+            formsValidated += 1;
+        }
+
+        if (validateForm($('#signup-password').val(), $('#password-error'))) {
+            formsValidated += 1;
+        }
+
+        if (validateForm($('#signup-dob').val(), $('#dob-error'))) {
+            formsValidated += 1;
+        }
+
+        if (validateForm($('#signup-fave_pet').val(), $('#fave-pet-error'))) {
+            formsValidated += 1;
+        }
+
+        if (validateForm($('#signup-fave_food').val(), $('#fave-food-error'))) {
+            formsValidated += 1;
+        }
+
+        if (validateForm($('#signup-born_at').val(), $('#born-at-error'))) {
+            formsValidated += 1;
+        }
+
         //if the forms are validated, then process the AJAX request.
-        if (formsValidated) {
+        if (formsValidated == 7) {
             $.ajax({
                 method: "POST",
                 url: "../test.php"
@@ -181,7 +207,7 @@ $(document).ready(function () {
                 alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
             });
         } else {
-            //return an error message
+            formsValidated = 0;
         }
     });
 });
