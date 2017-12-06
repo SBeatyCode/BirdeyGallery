@@ -1,84 +1,70 @@
 <?php session_start(); ?>
 <?php include 'includes/config.php'; ?> 
-
-    <div class="header">
-        <header class="header--banner"><h1>Sign Up</h1></header>
-        <p class="header--text">
-           Register Your New Account Here!
-        </p> <!-- /header-text -->
-        
-        <div class='confirmation-message-container'>
-            <h3 class='confirmation-message-fail'>Your Something Has Been Done!</h3>
-        </div>
-    </div> <!-- /header -->
+<?php include 'includes/header.php'; ?>
+<?php include 'includes/functions.php'; ?>
+ 
+<!--    Main Section   -->
+    <div id="header-container container-fluid">
+       <div class="row">
+           <div class="col-sm-8 col-sm-offset-2 well" id="headerWell">
+               <header class="header">
+                   <h2><em>Art Gallery</em></h2>
+                </header>
+                <br>
+           </div>  <!-- /col-->
+       </div> <!-- /row -->           
+    </div> <!-- /container-fluid-->
+    <br>
     
-    <div class="main">
-        <h3 class="main--heading">Please Fill the Following Information to Create Your Account</h3>
-        <p>
-           <em>
-               *~ When you sign up, you'll be able to leave comments on any of the art posted. Please remember to always be courteous and respectful to everyone in the community. Bigotry, bullying, trolling and the like will not be tollerated. This is a positive, safe space to appreciate art. Have fun! ~*
-           </em>
-       </p>
-        <div class="main--content">
-            <div class='upload-wrapper'>
-              <form enctype="multipart/form-data" method="post">
-                    <div class='upload-section'>
-                        <label class='upload-section--label' for="name">Name</label>
-                        <input class="form-control" type="text" placeholder="Your Name" name="name">
-                    </div> <!-- /upload-section -->
+    <div class="container-fluid content-container">
+        <div class="row">
+           <div class="col-md-10 col-md-offset-1" id="gallery-container">
+                <h3>Browse through my work, leave a comment, and share with your friends!</h3>
+          
+             <!--    Show all the images here - loop with PHP    -->    
+                <div id="art-post-container">
+                 
+        <?php
 
-                    <div class='upload-section'>
-                        <label class='upload-section--label' for="username">Username</label>
-                        <input class="form-control" type="text" placeholder="Username (others will see this)" name="username">
-                    </div> <!-- /upload-section -->
+            $stmt = $db->prepare("SELECT * FROM ba_art");
+            $stmt->execute();
 
-                    <div class='upload-section'>
-                        <label class='upload-section--label' for="password">Password</label>
-                        <input class="form-control" type="password" placeholder="Password" name="password">
-                    </div> <!-- /upload-section -->
-                        
-                    <div class='upload-section'>
-                        <label class='upload-section--label' for="artDate">Date of Birth </label>
-                        <input type="date" class="date" name="dob">
-                        <small>We will never use or share your date of birth. This is purely for identification purposes.</small>
-                    </div> <!-- /upload-section -->
-                      
-                    <div class='upload-section'>
-                       <label class='upload-section--label' for="image">Choose an image to upload as an avatar: </label>
-                       <input type="file" name="image">
-                    </div> <!-- /upload-section -->
-                    
-                    <div class='upload-section'>
-                        <label class='upload-section--label' for="about">About Me</label>
-                        <textarea class='responsive-textarea' placeholder="Say something about yourself here, no more than 200 characters." name="about"></textarea>
-                    </div> <!-- /upload-section -->
+            while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $art_id = $row['art_id'];
+                $title = $row['art_title'];
+                $image = $row['image'];
+                $date = $row['dateCreated'];
+                $description = substr($row['description'], 0, 300) . '...';
+            
 
-                   <div class='upload-section'>
-                       ~ The following questions are your security questions, and should not be shared with anyone. ~
-                   </div> <!-- /upload-section -->
-                    
-                    <div class='upload-section'>
-                       <label class='upload-section--label' for="fave_pet">What's your favorite animal or pet?</label>
-                       <input type="text" class="form-control" name="fave_pet" placeholder="Your Anwser">
-                   </div> <!-- /upload-section -->
+        ?>
+                 
+                  <div class="art-post row well">
+                      <a href="image_view.php?id=<?php echo $art_id; ?>"><img class="thumbnail col-sm-3" src="images/art/<?php echo $image; ?>"></a>
+                      <label class="col-sm-7"><a href="image_view.php?id=<?php echo $art_id; ?>"><?php echo $title; ?></a></label>
+                      <a href="image_view.php?id=<?php echo $art_id; ?>">
+                          <aside class="col-sm-7 art-post-description"><?php echo $description; ?></aside>
+                      </a>
+                  </div><br>
+        <?php
+            }
+        ?>
+                </div> <!-- /art-post container -->
+           </div> <!-- /col md 10 -->
+        </div> <!-- /row -->
+    </div> <!-- /container -->
 
-                   <div class='upload-section'>
-                       <label class='upload-section--label' for="fave_food">What's your favorite food?</label>
-                       <input type="text" class="form-control" name="fave_food" placeholder="Your Anwser">
-                   </div> <!-- /upload-section -->
+    <?php 
 
-                   <div class='upload-section'>
-                       <label class='upload-section--label' for="born_at">Where were you born?</label>
-                       <input type="text" class="form-control" name="born_at" placeholder="Your Anwser">
-                   </div> <!-- /upload-section -->
-                    
-                    <footer>
-                       <em>
-                           *We will <strong>never</strong> share your personal information*
-                       </em>
-                    </footer>
-              </form>
-            </div> <!-- /upload-wrapper -->
-        </div> <!-- /content -->
-    </div> <!-- /main -->
-?>
+    if(!isLoggedIn()) {
+        echo (sanitize('  thi// ss  aa strING')); 
+    }
+
+    if(usernameExists('Birdeynamnam')) {
+        echo 'Hello, Eva!';
+    }
+
+    echo $username = ' Hello, ' . sanitize($_POST['username']) . '!';
+
+    ?>
+<?php include 'includes/footer.php'; ?> 

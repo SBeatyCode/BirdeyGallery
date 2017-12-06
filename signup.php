@@ -20,7 +20,7 @@
        </p>
         <div class="main--content">
             <div class='upload-wrapper'>
-              <form enctype="multipart/form-data" method="post" name="signupForm">
+              <form enctype="multipart/form-data" method="post" name="signupForm" id="signupForm">
                     <div class='upload-section'>
                         <label class='upload-section--label' for="name">Name</label>
                         <label class='error-message' id='name-error'></label>
@@ -43,12 +43,6 @@
                         <label class='upload-section--label' for="artDate">Date of Birth </label>
                         <label class='error-message' id='dob-error'></label>
                         <input type="date" class="date" name="dob" id='signup-dob'>
-                    </div> <!-- /upload-section -->
-                      
-                    <div class='upload-section'>
-                       <label class='upload-section--label' for="image">Choose an image to upload as a profile image: </label>
-                       <input type="file" name="image">
-                       <small>~Adding a profile image is optional~</small>
                     </div> <!-- /upload-section -->
                     
                     <div class='upload-section'>

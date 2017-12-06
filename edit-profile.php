@@ -13,6 +13,8 @@
     
     <div class="main">
         <h3 class="main--heading">Edit Your Information Here</h3>
+        
+        <h3>Want to edit your profile image? Edit it <a class="header--text--link" href="edit-profile-image.php">here</a>!</h3>
 
         <div class="main--content">
             <div class='upload-wrapper'>
@@ -36,11 +38,6 @@
                         <label class='upload-section--label' for="artDate">Date of Birth </label>
                         <input type="date" class="date" name="dob">
                         <small>We will never use or share your date of birth. This is purely for identification purposes.</small>
-                    </div> <!-- /upload-section -->
-                      
-                    <div class='upload-section'>
-                       <label class='upload-section--label' for="image">Choose an image to upload as an avatar: </label>
-                       <input type="file" name="image">
                     </div> <!-- /upload-section -->
                     
                     <div class='upload-section'>

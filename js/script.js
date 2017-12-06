@@ -74,6 +74,7 @@ var functions = __webpack_require__(1);
 var DatePicker = __webpack_require__(2);
 var navbarMenu = __webpack_require__(3);
 var signup = __webpack_require__(4);
+var profileImage = __webpack_require__(5);
 
 /***/ }),
 /* 1 */
@@ -150,7 +151,6 @@ $(document).ready(function () {
 
     //function to see if a given form element is empty or not, takes an input, and a label
     var validateForm = function validateForm(formElement, errorElement) {
-        //        console.log(formElement);
         if (formElement.trim() == "") {
             errorElement.html('*~~ You must enter a value in the field. ~~*');
             return false;
@@ -163,7 +163,6 @@ $(document).ready(function () {
     //validate all the fields
 
     $('#signup-submit').click(function () {
-
         if (validateForm($('#signup-name').val(), $('#name-error'))) {
             formsValidated += 1;
         }
@@ -194,21 +193,61 @@ $(document).ready(function () {
 
         //if the forms are validated, then process the AJAX request.
         if (formsValidated == 7) {
+
+            //submit the form, then make the ajax call
+            $('#signupForm').submit();
+
             $.ajax({
                 method: "POST",
-                url: "../test.php"
+                url: "signup-action.php", //signup-action.php
+                data: $('#signupForm').serialize(),
+                cache: false
             }).done(function (data) {
-                //            console.log(data);
                 $('#signup-header').remove();
                 $('#signup-main').remove();
                 $('#signup-container').append(data);
                 window.scrollTo(0, 0);
-            }).fail(function () {
+            }).fail(function (data) {
                 alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+                console.log(data.statusText);
+                console.log(data);
+                window.scrollTo(0, 0);
             });
+            //reset the validation counter so it can't be resuubmitted over and over
+            formsValidated = 0;
         } else {
+            //forms not validated
             formsValidated = 0;
         }
+    });
+});
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+$(document).ready(function () {
+    $('#profileImage--submit').on('click', function (e) {
+        $.ajax({
+            type: "POST",
+            url: "edit-profile-image-action.php",
+            data: new FormData($('#profileImageForm')[0]),
+            cache: false,
+            contentType: false,
+            processData: false
+        }).done(function (data) {
+            $('#profileImageHeader').remove();
+            $('#profileImageMain').remove();
+            $('#profileImageContainer').append(data);
+            window.scrollTo(0, 0);
+        }).fail(function (data) {
+            alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+            console.log(data.statusText);
+            console.log(data);
+        });
     });
 });
 

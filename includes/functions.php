@@ -9,15 +9,6 @@
         }
     }
 
-    function isAdmin() {
-//check to see if the current user is an admin or not
-        if(isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     function usernameExists($username) {
 //check to see if the entered username already exists in the database
         global $db;
@@ -57,7 +48,7 @@
 //sanitize user-input data to prevent sql inject, etc
         
 //trim whitespace, convert special chars (including quotes) to html entitites, get rid of slashes, replace (',') with '' so an array can't be input
-        trim( htmlspecialchars (stripcslashes ( str_replace( array( '(', ')' ), '', $data ) ) ), ENT_QUOTES );
+        trim( htmlspecialchars (stripslashes ( str_replace( array( '(', ')' ), '', $data ) ) ), ENT_QUOTES );
         
         return $data;
     }
