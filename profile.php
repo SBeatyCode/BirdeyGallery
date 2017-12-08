@@ -3,44 +3,99 @@
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/navbar.php'; ?>
 
+<?php
+
+    if(isset($_GET['id'])) {
+        $user_id = $_GET['id'];
+        
+        $stmt = $db->prepare("SELECT * FROM ba_users WHERE user_id = :user_id");
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->execute();
+        
+        
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $id = $row['user_id'];
+            $name = $row['name'];
+            $db_username = $row['username'];
+            $user_image = $row['image'];
+            $about = $row['about'];
+            $image = $row['image'];
+        }
+    }
+
+//get the number of artworks they've created, as well as the art itself
+
+    $stmtArt = $db->prepare("SELECT * FROM ba_art WHERE artist_id = :artist_id");
+    $stmtArt->bindParam(':artist_id', $user_id);
+    $stmtArt->execute();
+
+    $numberOfPieces = $stmtArt->rowCount();
+?>
+
 <div class="container">
     <div class='profile-container'>
         <aside>
             <div class='profile-wrapper'>
                 <div class='profile'>
-                   <header><h1>[username]'s Profile</h1></header>
-                    <img class='profile--pic' src="images/art/polls_profiles_totakeke_3907_348576_xlarge_0419_833896_poll_xlarge.jpeg">
+                   <header><h1><?php echo $db_username; ?>'s Profile</h1></header>
+                    <img class='profile--pic' src="images/profilePics/<?php echo $image; ?>">
                     <div class='profile--info'>
-                        <div>Username</div>
-                        <div>Number of art pieces: [4]</div>
+                        <div><?php echo $db_username; ?></div><br>
+                        <div>Number of Art Pieces: <em><?php echo $numberOfPieces; ?></em></div>
                         <div class='profile--about'>
-                            <p>This is a test to see about how big 200 characters is. I want to see how this section reacts so i can get a better idea of what to expect. Meow meow!! Meow meow!! Meow meow!! Meow meow!! Meow meow!! M </p>
+                            <p><em><?php echo $about; ?></em></p>
                         </div>
 
-                         <!-- THis edit button only shows up if the user is the one logged in - use PHP -->
-                        <div><span class='profile-edit'>Edit</span></div>
-
+                         <!-- Display edit link, only if the user is the one logged in and viewing their own profile -->
+                        <?php
+                            if($user_id == $_SESSION['user_id']) {
+                        ?>
+                        <div><a class='profile-edit' href="edit-profile.php">Edit</a></div>
+                        <?php
+                            }
+                        ?>
                     </div> <!-- /profile--info -->
                 </div> <!-- /profile -->
             </div> <!-- /profile-wrapper -->
         </aside>
 
         <div class='profile-gallery'>
+                     
+            <?php
+                if($user_id == $_SESSION['user_id']) {
+            ?>
+               <h3>Post new art by clicking <a class='profile-gallery--upload-link' href="upload-art.php">here</a>!</h3>
+            <?php
+                }        
+            ?>
+            
+           <?php
+    //display the art in the gallery section
+                while($row = $stmtArt->fetch(PDO::FETCH_ASSOC)) {
+                    $art_id = $row['art_id'];
+                    $title = $row['art_title'];
+                    $image = $row['image'];
+                    $artist = $row['artist']
+            ?>
+            
             <div class="profile-gallery--image-wrapper">
-                <img class="profile-gallery--image" id="image-1" src="images/art/polls_profiles_totakeke_3907_348576_xlarge_0419_833896_poll_xlarge.jpeg">
-                <label>'KK Slider'</label>
+                <img class="profile-gallery--image" src="images/art/<?php echo $image; ?>">
+                <label><?php echo $title; ?></label>
             </div> <!-- /profile-gallery--image-wrapper -->
+            
+            <?php
+                }
+            
+                if($numberOfPieces <= 0) {
+                    
+            ?>
+               
+               <h3>Sorry, this user hasn't shared any art yet!</h3>
 
-            <div class="profile-gallery--image-wrapper">
-                <img class="profile-gallery--image" id="image-1" src="images/art/19553173_1839561399403905_2038653764_n.png">
-                <label>'Rowlette'</label>
-            </div> <!-- /profile-gallery--image-wrapper -->
-
-            <div class="profile-gallery--image-wrapper">
-                <img class="profile-gallery--image" id="image-1" src="images/art/birbsPage.jpg">
-                <label>'Birbs'</label>
-            </div> <!-- /profile-gallery--image-wrapper -->
-
+            <?php
+                }
+            ?>
+            
         </div> <!-- profile-gallery -->
     </div> <!-- /profile-container -->
 </div> <!-- /container -->

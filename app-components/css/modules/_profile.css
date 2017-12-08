@@ -42,6 +42,16 @@
     align-items: center;
 }
 
+.profile-gallery--upload-link {
+    color: $birdeyGreen;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.profile-gallery--upload-link:hover {
+    color: $basicWhite;
+}
+/*
 .frontpage-images {
     display: flex;
     flex-direction: row;
@@ -49,6 +59,7 @@
     align-content: space-around;
     align-items: center;
 }
+*/
 
 .profile-gallery--image-wrapper {
     margin-top: 2rem;
@@ -66,12 +77,13 @@
     .profile-container {
         display: flex;
         flex-direction: row;
+        margin-bottom: 5rem;
     }
     
     .profile-wrapper {
         display: block;
         width: 20rem;
-        height: 34rem;
+        height: 20rem;
         margin-top: -1.275em;
         padding-right: 1.5rem;
         margin-right: 1rem;

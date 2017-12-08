@@ -17,6 +17,11 @@
     max-width: 15.625rem;
 }
 
+.frontpage-images--round--image {
+    max-width: 15.625rem;
+    border-radius: 50%;
+}
+
 .frontpage-images--link {
     color: $birdeyGreen;
     transition: .3s;

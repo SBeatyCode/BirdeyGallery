@@ -8,6 +8,12 @@
 /*    width: 100%;*/
 }
 
+.header--username {
+    color: $birdeyGreen;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
 .header--text {
     font-size: 1.2rem;
 }

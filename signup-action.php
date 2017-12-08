@@ -9,9 +9,6 @@
         </p> <!-- /header-text -->
         
     <?php 
-    /*set a boolean variable, this will be set to 'true' if nothing goes wrong. If it's true and everything passes then show confirmation, otherwise reload the page as it was before being submitted */
-    //$displayImageForm = false;
-
         $username = sanitize($_POST['username']);
 
 //if the username entered doesn't already exist - continue           
@@ -50,11 +47,8 @@
             $stmt->execute();
 
             echo "<h3 class='confirmation-message-success'>Your new account has been created!</h3>";
-            echo "<p class='header--text'>Now it's time to add a Profile Image!</p>";
-
+/*set a boolean variable, this will be set to 'true' if nothing goes wrong. If it's true and everything passes then show confirmation, otherwise reload the page as it was before being submitted */
             $displayImageForm = true;
-            $_SESSION['usernameForImage'] = $username;
-
         } else {
 //display error message if user is trying to enter a duplicate username 
              echo "<h3 class='confirmation-message-fail'>That username already exists. Please try another one</h3>";
@@ -67,11 +61,10 @@
            </div> <!-- /header -->
           
           <div class="main" id='signup-main'>
-            <h3 class="main--heading">Upload A Profile Image</h3>
-            <p>Now you can either log in, or you can add a Profile Image!</p>
+            <h3 class="main--heading">Account Created Successfully!</h3>
+            <p>Log in now to join the fun!</p>
             <div class="main--content">
                 <div class='upload-buttons'>
-                    <a class="btn-birdey-wrapper" href="edit-profile-image.php"><input type="button" class="btn-birdey" value="Add Profile Image"></a>
                     <a class="btn-birdey-wrapper" href="login.php"><input type="button" class="btn-birdey" value="Login"></a>
                 </div> <!-- /upload-buttons -->
             </div> <!-- /content -->

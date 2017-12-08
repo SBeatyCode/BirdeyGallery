@@ -6,12 +6,27 @@
 <div class="container">
     <div class="header">
         <header class="header--banner"><h1>Birdey Gallery</h1></header>
+        
+        <?php
+            if(isLoggedIn()) {
+                
+        ?>
+        Welcome Back, <span class="header--username"><?php echo $_SESSION['name']; ?></span>!
+    </div> <!-- /header -->
+       
+        <?php
+            } else {
+                
+        ?>
         <p class="header--text">
            Welcome to Birdey Gallery! This is a site to showcase the art and photography of Birdeynamnam. Take a look around, and enjoy!
         </p> <!-- /header-text -->
-        
-        <p class="header--text">Start by checking out the <a class="header--text--link" href='#'>Gallery</a>, or <a class="header--text--link" href="#">log in</a> to post your own art and post comments!</p>
+        <p class="header--text">Start by checking out the <a class="header--text--link" href="gallery.php">Gallery</a>, or <a class="header--text--link" href="login.php">log in</a> to post your own art and post comments!</p>
     </div> <!-- /header -->
+       
+        <?php
+            }
+        ?>
     
     <div class="main">
         <h3 class="main--heading">Recent Art Postings</h3>

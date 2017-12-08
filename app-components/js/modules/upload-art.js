@@ -1,20 +1,20 @@
 $(document).ready(function() {
-    $('#profileImage--submit').click((e) => {
+    $('#uploadArtSubmit').click((e) => {
         
-        let formData = new FormData($('#profileImageForm')[0]);
+        let formData = new FormData($('#uploadArtForm')[0]);
 
         $.ajax({
             type: "POST",
-            url: "edit-profile-image-action.php",
+            url: "upload-art-action.php",
             data: formData,
             cache: false,
             contentType: false,
             processData: false
         })
         .done(function(data) {
-            $('#profileImageHeader').remove();
-            $('#profileImageMain').remove();
-            $('#profileImageContainer').append(data);
+            $('#uploadArtHeader').remove();
+            $('#uploadArtMain').remove();
+            $('#uploadArtContainer').append(data);
             window.scrollTo(0, 0);
         })
         .fail(function(data) {

@@ -1,5 +1,16 @@
-Make a default value for the 'about' field for ba_users - about should be optional. Maybe image also?
-Have the signup-action-php page do what it needs to make a new user
+edit art image php / edit art image action php / edit art image js
+
+View Image php
+
+TEST ALL THE ART PAGES
+
+--Check Edit Art and Upload art, and make sure there are default values for the fields that aren't required.
+
+Comments System
+
+Infinite Scroll
+
+Lost Password
 
 
 May need to make

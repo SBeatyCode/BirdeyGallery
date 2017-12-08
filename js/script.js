@@ -74,7 +74,11 @@ var functions = __webpack_require__(1);
 var DatePicker = __webpack_require__(2);
 var navbarMenu = __webpack_require__(3);
 var signup = __webpack_require__(4);
-var profileImage = __webpack_require__(5);
+var editProfile = __webpack_require__(5);
+var profileImage = __webpack_require__(6);
+var login = __webpack_require__(7);
+var uploadArt = __webpack_require__(8);
+var artInfo = __webpack_require__(9);
 
 /***/ }),
 /* 1 */
@@ -230,11 +234,97 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
-    $('#profileImage--submit').on('click', function (e) {
+    //variable to check if the fields on the form has been validated. Only run AJAX call if it's true
+    var formsValidated = 0;
+
+    //function to see if a given form element is empty or not, takes an input, and a label
+    var validateForm = function validateForm(formElement, errorElement) {
+        if (formElement.trim() == "") {
+            errorElement.html('*~~ You must enter a value in the field. ~~*');
+            return false;
+        } else {
+            errorElement.html('');
+            return true;
+        }
+    };
+
+    //validate all the fields
+
+    $('#editProfileSubmit').click(function () {
+
+        console.log('hey clickboy');
+
+        if (validateForm($('#editProfileName').val(), $('#name-error'))) {
+            formsValidated += 1;
+        }
+
+        if (validateForm($('#editProfileUsername').val(), $('#username-error'))) {
+            formsValidated += 1;
+        }
+
+        if (validateForm($('#editProfilePassword').val(), $('#password-error'))) {
+            formsValidated += 1;
+        }
+
+        if (validateForm($('#editProfileDob').val(), $('#dob-error'))) {
+            formsValidated += 1;
+        }
+
+        if (validateForm($('#editProfileFavePet').val(), $('#fave-pet-error'))) {
+            formsValidated += 1;
+        }
+
+        if (validateForm($('#editProfileFaveFood').val(), $('#fave-food-error'))) {
+            formsValidated += 1;
+        }
+
+        if (validateForm($('#editProfileBornAt').val(), $('#born-at-error'))) {
+            formsValidated += 1;
+        }
+
+        //if the forms are validated, then process the AJAX request.
+        if (formsValidated == 7) {
+            $.ajax({
+                method: "POST",
+                url: "edit-profile-action.php",
+                data: $('#editProfileForm').serialize(),
+                cache: false
+            }).done(function (data) {
+                $('#editProfileHeader').remove();
+                $('#editProfileMain').remove();
+                $('#editProfileContainer').append(data);
+                window.scrollTo(0, 0);
+            }).fail(function (data) {
+                alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+                console.log(data.statusText);
+                console.log(data);
+                window.scrollTo(0, 0);
+            });
+            //reset the validation counter so it can't be resuubmitted over and over
+            formsValidated = 0;
+        } else {
+            //forms not validated
+            formsValidated = 0;
+        }
+    });
+});
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+$(document).ready(function () {
+    $('#profileImage--submit').click(function (e) {
+
+        var formData = new FormData($('#profileImageForm')[0]);
+
         $.ajax({
             type: "POST",
             url: "edit-profile-image-action.php",
-            data: new FormData($('#profileImageForm')[0]),
+            data: formData,
             cache: false,
             contentType: false,
             processData: false
@@ -247,7 +337,164 @@ $(document).ready(function () {
             alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
             console.log(data.statusText);
             console.log(data);
+            window.scrollTo(0, 0);
         });
+    });
+});
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+$(document).ready(function () {
+    //variable to check if the fields on the form has been validated. Only run AJAX call if it's true
+    var formsValidated = 0;
+
+    //function to see if a given form element is empty or not, takes an input, and a label
+    var validateForm = function validateForm(formElement, errorElement) {
+        if (formElement.trim() == "") {
+            errorElement.html('*~~ You must enter a value in the field. ~~*');
+            return false;
+        } else {
+            errorElement.html('');
+            return true;
+        }
+    };
+
+    //validate all the fields
+
+    $('#login-form-button').click(function () {
+        if (validateForm($('#loginUsername').val(), $('#username-login-error'))) {
+            formsValidated += 1;
+        }
+
+        if (validateForm($('#loginPassword').val(), $('#password-login-error'))) {
+            formsValidated += 1;
+        }
+
+        //if the forms are validated, then process the AJAX request.
+        if (formsValidated == 2) {
+            //submit the form, then make the ajax call
+            $('#loginForm').submit();
+
+            $.ajax({
+                method: "POST",
+                url: "login-action.php", //signup-action.php
+                data: $('#loginForm').serialize(),
+                cache: false
+            }).done(function (data) {
+                $('#loginHeader').remove();
+                $('#loginMain').remove();
+                $('#loginContainer').append(data);
+                window.scrollTo(0, 0);
+            }).fail(function (data) {
+                alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+                console.log(data.statusText);
+                console.log(data);
+                window.scrollTo(0, 0);
+            });
+            //reset the validation counter so it can't be resuubmitted over and over
+            formsValidated = 0;
+        } else {
+            //forms not validated
+            formsValidated = 0;
+        }
+    });
+});
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+$(document).ready(function () {
+    $('#uploadArtSubmit').click(function (e) {
+
+        var formData = new FormData($('#uploadArtForm')[0]);
+
+        $.ajax({
+            type: "POST",
+            url: "upload-art-action.php",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false
+        }).done(function (data) {
+            $('#uploadArtHeader').remove();
+            $('#uploadArtMain').remove();
+            $('#uploadArtContainer').append(data);
+            window.scrollTo(0, 0);
+        }).fail(function (data) {
+            alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+            console.log(data.statusText);
+            console.log(data);
+            window.scrollTo(0, 0);
+        });
+    });
+});
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+$(document).ready(function () {
+    //variable to check if the fields on the form has been validated. Only run AJAX call if it's true
+    var formsValidated = 0;
+
+    //function to see if a given form element is empty or not, takes an input, and a label
+    var validateForm = function validateForm(formElement, errorElement) {
+        if (formElement.trim() == "") {
+            errorElement.html('*~~ You must enter a value in the field. ~~*');
+            return false;
+        } else {
+            errorElement.html('');
+            return true;
+        }
+    };
+
+    //validate all the fields
+
+    $('#artInfoSubmit').click(function () {
+
+        if (validateForm($('#art_title').val(), $('#art_title-error'))) {
+            formsValidated += 1;
+        }
+
+        if (validateForm($('#art_date').val(), $('#art_date-error'))) {
+            formsValidated += 1;
+        }
+
+        //if the forms are validated, then process the AJAX request.
+        if (formsValidated == 2) {
+            $.ajax({
+                method: "POST",
+                url: "art-info-action.php",
+                data: $('#artInfoForm').serialize(),
+                cache: false
+            }).done(function (data) {
+                $('#artInfoMain').remove();
+                $('.container').append(data);
+                window.scrollTo(0, 0);
+            }).fail(function (data) {
+                alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+                console.log(data.statusText);
+                console.log(data);
+                window.scrollTo(0, 0);
+            });
+            //reset the validation counter so it can't be resuubmitted over and over
+            formsValidated = 0;
+        } else {
+            //forms not validated
+            formsValidated = 0;
+        }
     });
 });
 
