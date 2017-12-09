@@ -33,25 +33,47 @@
 
         <div class="main--content">
             <div class="frontpage-images">
+               
+               <?php
+           //get the 4 most recent images from the database     
+                    $stmt = $db->prepare("SELECT * FROM ba_art LIMIT 4");
+                    $stmt->execute();
+
+                    while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        $art_id = $row['art_id'];
+                        $artist_id = $row['artist_id'];
+                        $title = $row['art_title'];
+                        $image = $row['image'];
+                        
+                        $stmtName = $db->prepare("SELECT * FROM ba_users WHERE user_id = :user_id");
+                        $stmtNAME->bindParam(':user_id', $artist_id);
+                        $stmtName->execute();
+
+                        while($row = $stmtName->fetch(PDO::FETCH_ASSOC)) {
+                            $user_id = $row['user_id'];
+                            $username = $row['username'];
+                        }
+            //get artist name
+                ?>
+                
                 <div class="frontpage-images--image-wrapper">
-                    <a href=""><img class="frontpage-images--image" id="image-1" src="images/art/polls_profiles_totakeke_3907_348576_xlarge_0419_833896_poll_xlarge.jpeg"></a>
-                    <label>'KK Slider' by <a class="frontpage-images--link" href="">Nintendo</a></label>
+                    <a href=""><img class="frontpage-images--image" id="image-1" src="images/art/<?php echo $image; ?>"></a>
+                    <label><em><?php echo $title; ?></em> by <a class="frontpage-images--link" href="profile.php?user_id=<?php echo $user_id; ?>"><?php echo $username; ?></a></label>
                 </div> <!-- /frontpage-images--image-wrapper -->
                 
+                <?php
+                    }
+                
+                ?>
+
+                
+<!--
                 <div class="frontpage-images--image-wrapper">
                     <a href=""><img class="frontpage-images--image" id="image-2" src="images/art/birbsPage.jpg"></a>
                     <label>'KK Slider' by <a class="frontpage-images--link" href="">Nintendo</a></label>
-                </div> <!-- /frontpage-images--image-wrapper -->
+                </div>  /frontpage-images--image-wrapper 
+-->
                 
-                <div class="frontpage-images--image-wrapper">
-                    <a href=""><img class="frontpage-images--image" id="image-3" src="images/art/birbsPage.jpg"></a>
-                    <label>'KK Slider' by <a class="frontpage-images--link" href="">Nintendo</a></label>
-                </div> <!-- /frontpage-images--image-wrapper -->
-                
-                <div class="frontpage-images--image-wrapper">
-                    <a href=""><img class="frontpage-images--image" id="image-4" src="images/art/polls_profiles_totakeke_3907_348576_xlarge_0419_833896_poll_xlarge.jpeg"></a>
-                    <label>'KK Slider' by <a class="frontpage-images--link" href="">Nintendo</a></label>
-                </div> <!-- /frontpage-images--image-wrapper -->
             </div> <!-- /frontpage-images -->
             
             <p>

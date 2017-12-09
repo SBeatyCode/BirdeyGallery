@@ -21,16 +21,7 @@
 .profile--info {
     background-color: $lighterMainGrey;
     width: 100vw;
-}
-
-.profile-edit {
-    color: $birdeyGreen;
-    cursor: pointer;
-}
-
-.profile-edit:hover {
-    color: $basicWhite;
-    transition: .3s;
+    padding-bottom: 3em;
 }
 
 .profile-gallery {
@@ -42,24 +33,15 @@
     align-items: center;
 }
 
-.profile-gallery--upload-link {
+.profile-gallery--link {
     color: $birdeyGreen;
     text-decoration: none;
     transition: .3s;
 }
 
-.profile-gallery--upload-link:hover {
+.profile-gallery--link:hover {
     color: $basicWhite;
 }
-/*
-.frontpage-images {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: space-around;
-    align-items: center;
-}
-*/
 
 .profile-gallery--image-wrapper {
     margin-top: 2rem;

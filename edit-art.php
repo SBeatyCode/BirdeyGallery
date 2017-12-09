@@ -5,8 +5,8 @@
 
 <?php
 
-    if(isset($_GET['art_id']) {
-        $art_id = $_GET['art_id']
+    if(isset($_GET['art_id'])) {
+        $art_id = $_GET['art_id'];
         $_SESSION['art_id'] = $art_id;
     } else {
         header("Location: index.php");
@@ -21,7 +21,7 @@
         $db_image = $row['image'];
         $db_date = $row['dateCreated'];
         $db_description = $row['description'];
-        $db_tag = $row['tag'];;
+        $db_tag = $row['tag'];
     }
 
 ?>
@@ -46,18 +46,19 @@
                    </div> <!-- /upload-section-->
                    
                    <div class='upload-section'>
-                      <label>Current Image</label>
                        <h3>Want to update your artwork's image? Edit it <a class="header--text--link" href="edit-art-image.php">here</a>!</h3>
                    </div> <!-- /upload-section-->
                    
                     <div class='upload-section'>
                         <label class='upload-section--label' for="artName">Title of Piece</label>
-                        <input type="text" value="<?php echo $db_title; ?>" name="art_title">
+                        <label class='error-message' id='art_title-error'></label>
+                        <input type="text" value="<?php echo $db_title; ?>" name="art_title" id="art_title">
                     </div> <!-- /upload-section -->
                     
                     <div class='upload-section'>
                        <label class='upload-section--label' for="artTag">Select a Tag For Your Art</label>
-                        <select id="artTag" value="<?php echo $db_tag; ?>">
+                        <select id="artTag" name="artTag">
+                           <option><?php echo $db_tag; ?></option>
                             <option>Painting</option>
                             <option>Watercolor</option>
                             <option>Pencil</option>
@@ -71,17 +72,18 @@
 
                     <div class='upload-section'>
                         <label class='upload-section--label' for="artDate">Date Created </label>
-                        <input type="date" class="date" name="art_date" value="<?php echo $db_date; ?>">
+                        <label class='error-message' id='art_date-error'></label>
+                        <input type="date" class="date" name="art_date" id="art_date" value="<?php echo $db_date; ?>">
                     </div> <!-- /upload-section -->
-
+ 
                     <div class='upload-section'>
                         <label class='upload-section--label' for="description">Write a description</label>
-                        <textarea class='responsive-textarea' value="<?php echo $db_description; ?>" name="description"></textarea>
+                        <textarea class='responsive-textarea' name="artDescription" id="artDescription"><?php echo $db_description; ?></textarea>
                     </div> <!-- /upload-section -->
 
                     <div class='upload-buttons'>
                         <button class="btn-birdey upload-buttons--btn" type="reset" name="reset">Reset</button>
-                        <button class="btn-birdey upload-buttons--btn" type="button" name="editArtSubmit">Submit</button>
+                        <button class="btn-birdey upload-buttons--btn" type="button" name="editArtSubmit" id="editArtSubmit">Submit</button>
                     </div> <!-- /upload-section -->
               </form>
             </div> <!-- /upload-wrapper -->

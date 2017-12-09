@@ -13,13 +13,12 @@
     
     <div class="main" id="uploadArtMain">
         <h3 class="main--heading">Please select the image you would like to upload, then you can fill out the information about it.</h3>
-
         <div class="main--content">
             <div class='upload-wrapper'>
               <form enctype="multipart/form-data" method="post" name="uploadArtForm" id="uploadArtForm">
                     <div class='upload-section'>
                        <label class='upload-section--label' for="image">Choose an image to upload: </label>
-                       <input type="file" name="image">
+                       <input type="file" name="image" id="uploadArtImage">
                     </div> <!-- /upload-section -->
 
                     <div class='upload-buttons'>

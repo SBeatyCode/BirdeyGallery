@@ -13,9 +13,10 @@ $(document).ready(function() {
         }
     }
 
-    //validate all the fields 
+    //validate all the fields
     
-    $('#editArtSubmit').click( function() {     
+    $('#artInfoSubmit').click( function() {
+        
         if(validateForm($('#art_title').val(), $('#art_title-error'))) {
             formsValidated += 1;
         }
@@ -29,14 +30,13 @@ $(document).ready(function() {
         if(formsValidated == 2) {
             $.ajax({
                 method: "POST",
-                url: "edit-art-action.php",
-                data: $('#editArtForm').serialize(),
+                url: "art-info-action.php",
+                data: $('#artInfoForm').serialize(),
                 cache: false
             })
             .done(function(data) {
-                $('#editArtHeader').remove();
-                $('#editArtMain').remove();
-                $('#editArtContainer').append(data);
+                $('#artInfoMain').remove();
+                $('.container').append(data);
                 window.scrollTo(0, 0);
             })
             .fail(function(data) {

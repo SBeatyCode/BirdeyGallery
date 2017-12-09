@@ -50,7 +50,8 @@
                         <?php
                             if($user_id == $_SESSION['user_id']) {
                         ?>
-                        <div><a class='profile-edit' href="edit-profile.php">Edit</a></div>
+                        <div><a class='profile-gallery--link' href="edit-profile.php">Edit Profile</a></div>
+                        <h3>Post new art by clicking <a class='profile-gallery--link' href="upload-art.php">here</a>!</h3>
                         <?php
                             }
                         ?>
@@ -60,14 +61,6 @@
         </aside>
 
         <div class='profile-gallery'>
-                     
-            <?php
-                if($user_id == $_SESSION['user_id']) {
-            ?>
-               <h3>Post new art by clicking <a class='profile-gallery--upload-link' href="upload-art.php">here</a>!</h3>
-            <?php
-                }        
-            ?>
             
            <?php
     //display the art in the gallery section
@@ -80,7 +73,7 @@
             
             <div class="profile-gallery--image-wrapper">
                 <img class="profile-gallery--image" src="images/art/<?php echo $image; ?>">
-                <label><?php echo $title; ?></label>
+                <label><a class="profile-gallery--link" href="view-image.php?art_id=<?php echo $art_id; ?>"><?php echo $title; ?></a></label>
             </div> <!-- /profile-gallery--image-wrapper -->
             
             <?php

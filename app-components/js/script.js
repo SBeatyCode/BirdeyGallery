@@ -7,3 +7,5 @@ let profileImage = require('./modules/profile-image');
 let login = require('./modules/login');
 let uploadArt = require('./modules/upload-art');
 let artInfo = require('./modules/art-info');
+let editArt = require('./modules/edit-art');
+let editArtImage = require('./modules/edit-art-image');

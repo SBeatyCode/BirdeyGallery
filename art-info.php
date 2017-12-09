@@ -4,9 +4,8 @@
       
 <?php
 
-    if(isset($_GET['art_id'])) {
-        $art_id = $_GET['art_id'];
-        $_SESSION['art_id'] = $art_id;
+    if(isset($_SESSION['art_id'])) {
+        $art_id = $_SESSION['art_id'];
     } else {
         header('index.php');
     }
@@ -29,7 +28,7 @@
               <form enctype="multipart/form-data" method="post" id="artInfoForm" name="artInfoForm">
                    <div class='upload-section'>
                       <label>Image:</label>
-                       <img class="frontpage-images--round--image" src="images/profilePics/<?php echo $db_image; ?>">      
+                       <img class="frontpage-images--round--image" src="images/profilePics/<?php echo $image; ?>">      
                    </div> <!-- /upload-section-->
                    
                     <div class='upload-section'>

@@ -36,7 +36,9 @@ $(document).ready(function() {
             })
             .done(function(data) {
                 $('#artInfoMain').remove();
-                $('.container').append(data);
+                $('#uploadArtHeader').remove();
+                $('#artInfoHeader').remove();
+                $('#uploadArtContainer').append(data);
                 window.scrollTo(0, 0);
             })
             .fail(function(data) {

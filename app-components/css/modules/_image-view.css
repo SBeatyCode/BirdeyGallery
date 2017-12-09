@@ -1,0 +1,92 @@
+.image-view-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-view--image {
+    max-width: 15rem;
+    margin-bottom: 1em;
+}
+
+.image-view--item {
+    margin-bottom: 1em;
+}
+
+.image-view--text {
+    color: $birdeyGreen;
+    text-decoration: none;
+}
+
+.image-view-description {
+    margin-bottom: 1em;
+}
+
+.image-view-comments--comment-well {
+    margin-bottom: 1em;
+}
+
+.image-view-comments--comment-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-view-read-comments {
+
+}
+
+.image-view-read-comments--comment-wrapper {
+    margin-bottom: 1em;
+    background-color: #303030;
+    color: black;
+    padding-top: 1em;
+}
+
+.image-view-read-comments--comment {
+
+}
+
+.image-view-read-comments--commenter-info {
+    background-color: #303030;
+    margin-bottom: 1em;   
+}
+
+.image-view-read-comments--commenter-info:last-child {
+    padding-bottom: 2em;   
+}
+
+.image-view-read-comments--commenter-image {
+    margin-top: 2rem;
+    margin-right: 1rem;
+    width: 4rem;
+    border-radius: 50%;
+}
+
+.image-view--flag-comment {
+    color: red;
+    text-decoration: none;
+}
+
+.image-view--flag-comment:hover {
+    color: $birdeyAlert;
+}
+
+@media (min-width: 900px) {
+    .image-view--image {
+        max-width: 20rem;
+        margin-bottom: 2em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .image-view--image {
+        max-width: 30rem;
+    }
+}

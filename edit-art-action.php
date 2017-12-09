@@ -18,12 +18,12 @@
     $art_title = sanitize($_POST['art_title']);
     $art_date = sanitize($_POST['art_date']);
 
-    $description = sanitize($_POST['art_description']);
-    if($description == '') {
+    $description = sanitize($_POST['artDescription']);
+    if($description.trim() == '') {
         $description = 'No Description Yet';
     }
 
-    $tag = sanitize($_POST['art_Tag']);
+    $tag = $_POST['artTag'];
     if($tag == '') {
         $tag = 'Other';
     }
@@ -37,11 +37,14 @@
     $stmt->bindParam(':art_id', $art_id);
     $stmt->execute();
 ?>
-
+    <div class="header" id="editArtHeader">
+        <header class="header--banner"><h1>Edit Art</h1></header>
+        <h3 class='confirmation-message-success'>Image Information Has Been Updated!</h3>
+    </div> <!-- /header -->
+    
     <div class="main" id="editArtMain">
-        <h3 class="main--heading">Edit the information about your art here:</h3>
+        <h3 class="main--heading">View your art here:</h3>
         <div class="main--content">
-            <h3 class='confirmation-message-success'>Image Information Has Been Updated!</h3>
-            <a class="btn-birdey-wrapper" href="view-image.php?art_id=<?php echo $art_id; ?>"><input type="button" class="btn-birdey" value="View"></a>
+            <a class="btn-birdey-wrapper" href="view-image.php?art_id=<?php echo $art_id; ?>"><input type="button" class="btn-birdey" value="View Art"></a>
         </div> <!-- /content-->
     </div> <!-- /main -->

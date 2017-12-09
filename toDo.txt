@@ -1,8 +1,16 @@
-edit art image php / edit art image action php / edit art image js
+edit-art image
 
-View Image php
+Make it so users can add comments on artwork
 
-TEST ALL THE ART PAGES
+art info and edit art - make it so that the tag info is seen by PHP! rn it's NOT getting uploaded
+
+notifications
+
+home, gallery - need to be pulling images from the database
+
+gallery - infinite scroll
+
+TEST ALL THE ART PAGES (in progress)
 
 --Check Edit Art and Upload art, and make sure there are default values for the fields that aren't required.
 

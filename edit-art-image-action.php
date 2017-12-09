@@ -1,24 +1,14 @@
 <?php session_start(); ?>
 <?php include 'includes/config.php'; ?> 
-<?php include 'includes/header.php'; ?>
-<?php include 'includes/navbar.php'; ?>
+<?php include 'includes/functions.php'; ?>
 
 <?php
 
-    if(isset($_SESSION['art_id']) && $_SESSION['art_id'] != null) {
+    if(isset($_SESSION['art_id'] && $_SESSION['art_id'] != null) {
         $art_id = $_SESSION['art_id'];
     } else {
         header("Location: index.php");
     }
-       
-    $stmtDB = $db->prepare("SELECT * FROM ba_art WHERE art_id = :art_id");
-    $stmtDB->bindParam(':art_id', $art_id);
-    $stmtDB->execute();
-
-    while($row = $stmtDB->fetch(PDO::FETCH_ASSOC)) {
-        $db_image = $row['image'];
-    }
-
 ?>
 
 <div class="container" id="editArtImageContainer">
@@ -27,6 +17,46 @@
         <p class="header--text">
            Change your Art's Image
         </p> <!-- /header-text -->
+        
+<?php
+  
+//check if the file uploaded is an image
+    if(checkImage($_FILES["image"]["name"])) {
+//rename the image before uploading
+        $temp = explode(".", $_FILES["image"]["name"]);
+        $newfilename = round(microtime(true)) . '.' . end($temp);
+        $image = $newfilename;
+        $destination = 'images/art/' . $newfilename;
+
+        if(move_uploaded_file($_FILES['image']['tmp_name'], $destination)) {
+            $stmt = $db->prepare("UPDATE ba_art SET image = :image WHERE art_id = :art_id");
+            $stmt->bindParam(':image', $image);
+            $stmt->bindParam(':art_id', $art_id);
+            $stmt->execute();
+            
+            $noErrors = true;
+            echo "<h3 class='confirmation-message-success'>Image Has Been Updated!</h3>";
+        }
+    } else {
+        //display error message if the file being uploaded isn't an image
+        echo "<h3 class='confirmation-message-fail'>Only images can be uploaded. Please upload a jpg, jpeg, gif, or png file only.</h3>";
+    }
+       
+    if($noErrors) {
+        //display confirmation
+?>
+   </div> <!-- /header -->
+    
+    <div class="main" id="editArtImageMain">
+    <h3 class="main--heading">The image for your artwork has been successfully updated!</h3>
+        <div class="main--content">
+            <a class="btn-birdey-wrapper" href="view-image.php?art_id=<?php echo $art_id; ?>"><input type="button" class="btn-birdey" value="View Art"></a>
+        </div> <!-- /content -->
+    </div> <!-- /main -->
+<?php
+    } else {
+?>
+   
     </div> <!-- /header -->
     
     <div class="main" id="editArtImageMain">
@@ -51,7 +81,7 @@
             </div> <!-- /upload-wrapper -->
         </div> <!-- /content -->
     </div> <!-- /main -->
-</div> <!-- /container -->
-  
-
-<?php include 'includes/footer.php'; ?>
+   
+<?php
+    }      
+?>
