@@ -1,15 +1,13 @@
 <?php session_start(); ?>
 <?php include 'includes/config.php'; ?> 
-<?php include 'includes/header.php'; ?>
-<?php include 'includes/navbar.php'; ?>
+<?php include 'includes/functions.php'; ?>
 
 <?php
-    if(isset($_GET['art_id']) && $_GET['art_id'] != null) {
-        $art_id = $_GET['art_id'];
-        $_SESSION['art_id'] = $art_id;
-    } else {
-        header("Location: index.php");
-    }
+//getting the art id    
+        $art_id = $_SESSION['art_id'];
+?>
+        
+<?php
 
 //get information about the arkwork from the database
     $stmtDB = $db->prepare("SELECT * FROM ba_art WHERE art_id = :art_id");
@@ -47,14 +45,27 @@
         echo "<h3 class='bg-success confirm-msg'>The comment has been flagged! Administration will be notified.</h3><br><br>";
     }
 
-?>
+//posting the comment
+        $comment = sanitize($_POST['comment']);
+        $user = $_SESSION['username'];
+        
+        $stmtComment = $db->prepare("INSERT INTO ba_comments (art_id, artist_id, user, comment, datePosted, isFlagged) VALUES(:art_id, :artist_id, :user, :comment, now(), :isFlagged)");
+        $stmtComment->bindParam(':art_id', $art_id);
+        $stmtComment->bindParam(':artist_id', $db_artist_id);
+        $stmtComment->bindParam(':user', $user);
+        $stmtComment->bindParam(':comment', $comment);
+        $stmtComment->bindValue(':isFlagged', 0);
+        $stmtComment->execute();
 
-<div class="container" id="viewImageContainer">
+?>
     <div class="header" id="viewImageHeader">
         <header class="header--banner"><h1><?php echo $db_title; ?></h1></header>
+        <h3 class='confirmation-message-success'>Your comment has been added!</h3>
     </div> <!-- /header -->
     
     <div class="main" id="viewImageMain">
+        <div class="main--content">
+            <div class="main" id="viewImageMain">
         <div class="main--content">
            
             <div class="image-view-wrapper">
@@ -65,13 +76,13 @@
                     if($db_artist_id == $_SESSION['user_id']) {        
                 ?>
                 
-                <label class="image-view--item"><a class="image-view--commenter-profile-link" href="edit-art.php?art_id=<?php echo $art_id; ?>">Edit Art Information</a></label>
+                <label class="image-view--item"><a class="image-view--text" href="edit-art.php?art_id=<?php echo $art_id; ?>">Edit Art Information</a></label>
                 
                 <?php
                     } 
                 ?>
                 
-                <label class="image-view--item"><span class="image-view--text"><em><?php echo $db_title; ?></em></span> by <span class="image-view--text"><em><a class="image-view--commenter-profile-link" href="profile.php?id=<?php echo $db_artist_id; ?>"><?php echo $username; ?></a></em></span></label>
+                <label class="image-view--item"><span class="image-view--text"><em><?php echo $db_title; ?></em></span> by <span class="image-view--text"><em><?php echo $username; ?></em></span></label>
                 
                 <label class="image-view--item">Created On: <span class="image-view--text"><em><?php echo $db_date; ?></em></span></label>
                 
@@ -137,7 +148,6 @@
                     $stmt2->execute();
 
                     while($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)) {
-                        $commenter_id = $row2['user_id'];
                         $image = $row2['image'];
                     }
             ?>
@@ -145,17 +155,14 @@
             <!-- Pulling comments from the database  -->
                        <div class="image-view-read-comments--comment-wrapper">
                            <?php #echo $image; ?>
-                           <textarea class="responsive-textarea image-view-read-comments--textarea" readonly value=""><?php echo $comment; ?></textarea>
+                           <textarea class="responsive-textarea" readonly value=""><?php echo $comment; ?></textarea>
                             <div class="image-view-read-comments--commenter-info">
-                                <img class="image-view-read-comments--commenter-image" src="images/profilePics/<?php echo $_SESSION['userImage']; ?>">
-                                
-                                <span class="image-view--text"><i class="fa fa-user-circle" aria-hidden="true"></i> <a class="image-view--commenter-profile-link" href="profile.php?id=<?php echo $commenter_id; ?>"><?php echo $user; ?></a></span>&nbsp;
-                                
+                                <img class="image-view-read-comments--commenter-image" src="images/profilePics/default.jpeg">
+                                <span class="image-view--text"><i class="fa fa-user-circle" aria-hidden="true"></i> <?php echo $user; ?></span>&nbsp;
                                 <span class="image-view--text"><i class="fa fa-calendar" aria-hidden="true"></i> <?php  echo $date; ?></span>
                                 &nbsp;
-                                
                                 <span>
-                                    <a class="image-view--flag-comment" onClick="return confirm('Flag a comment that is toxic or otherwise inappropriate, NOT a comment that you disagree with. Are you sure you want to flag this comment?');" href='view-image.php?art_id=<?php echo $art_id; ?>&flag=<?php echo $comment_id; ?>' class='btn-flag'>
+                                    <a class="image-view--flag-comment" onClick="return confirm('Flag a comment that is toxic or otherwise inappropriate, NOT a comment that you disagree with. Are you sure you want to flag this comment?');" href='view_image.php?art_id=<?php echo $art_id; ?>&flag=<?php echo $comment_id; ?>' class='btn-flag'>
                                         <i class="fa fa-flag" aria-hidden="true"></i> Flag
                                     </a>
                                 </span>
@@ -170,7 +177,3 @@
             
         </div> <!-- /content -->
     </div> <!-- /main -->
-</div> <!-- /container -->
-
-
-<?php include 'includes/footer.php'; ?>

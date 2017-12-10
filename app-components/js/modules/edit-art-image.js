@@ -1,6 +1,5 @@
 $(document).ready(function() {
     $('#editArtImageSubmit').click((e) => {
-        
         let formData = new FormData($('#editArtImageForm')[0]);
 
         $.ajax({

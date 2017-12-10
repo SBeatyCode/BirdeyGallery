@@ -81,6 +81,7 @@ var uploadArt = __webpack_require__(8);
 var artInfo = __webpack_require__(9);
 var editArt = __webpack_require__(10);
 var editArtImage = __webpack_require__(11);
+var postComment = __webpack_require__(12);
 
 /***/ }),
 /* 1 */
@@ -571,7 +572,6 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $('#editArtImageSubmit').click(function (e) {
-
         var formData = new FormData($('#editArtImageForm')[0]);
 
         $.ajax({
@@ -585,6 +585,34 @@ $(document).ready(function () {
             $('#editArtImageHeader').remove();
             $('#editArtImageMain').remove();
             $('#editArtImageContainer').append(data);
+            window.scrollTo(0, 0);
+        }).fail(function (data) {
+            alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+            console.log(data.statusText);
+            console.log(data);
+            window.scrollTo(0, 0);
+        });
+    });
+});
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+$(document).ready(function () {
+    $('#viewImageSubmit').click(function () {
+        $.ajax({
+            method: "POST",
+            url: "view-image-action.php",
+            data: $('#viewImageCommentForm').serialize(),
+            cache: false
+        }).done(function (data) {
+            $('#viewImageHeader').remove();
+            $('#viewImageMain').remove();
+            $('#viewImageContainer').append(data);
             window.scrollTo(0, 0);
         }).fail(function (data) {
             alert('Something went wrong with the server request. Please try again, or contact the network administrator.');

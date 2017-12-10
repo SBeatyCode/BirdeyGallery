@@ -22,11 +22,17 @@
 }
 
 .image-view-description {
-    margin-bottom: 1em;
+    margin-bottom: 4em;
 }
 
 .image-view-comments--comment-well {
     margin-bottom: 1em;
+}
+
+.image-view--comment-label {
+    font-size: 1.25rem;
+    font-weight: 500;
+    font-style: italic;
 }
 
 .image-view-comments--comment-form {
@@ -38,24 +44,30 @@
     justify-content: center;
 }
 
-.image-view-read-comments {
-
-}
-
 .image-view-read-comments--comment-wrapper {
     margin-bottom: 1em;
-    background-color: #303030;
+    background-color: #2b2b2b;
     color: black;
     padding-top: 1em;
 }
 
-.image-view-read-comments--comment {
-
+.image-view-read-comments--textarea {
+    background-color: #f7f7f7;
 }
 
 .image-view-read-comments--commenter-info {
-    background-color: #303030;
+    background-color: #2b2b2b;
     margin-bottom: 1em;   
+}
+
+.image-view--commenter-profile-link {
+    color: $birdeyGreen;
+    transition: .3s;
+    text-decoration: none;
+}
+
+.image-view--commenter-profile-link:hover {
+    color: $basicWhite;
 }
 
 .image-view-read-comments--commenter-info:last-child {
@@ -66,6 +78,7 @@
     margin-top: 2rem;
     margin-right: 1rem;
     width: 4rem;
+    height: 4rem;
     border-radius: 50%;
 }
 

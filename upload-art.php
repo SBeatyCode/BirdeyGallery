@@ -3,6 +3,16 @@
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/navbar.php'; ?>
 
+<?php
+
+    if(isLoggedIn()) {
+        //checking to see that the user is logged in, if they aren't they shouldn't be able to reach this page, so will be redirected to index
+    } else {
+        header("Location: index.php");
+    }
+
+?>
+
 <div class="container" id="uploadArtContainer">
     <div class="header" id="uploadArtHeader">
         <header class="header--banner"><h1>Upload Art</h1></header>

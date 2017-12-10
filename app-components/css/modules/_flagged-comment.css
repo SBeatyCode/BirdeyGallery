@@ -18,11 +18,15 @@
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 
 .flagged-comment--commenter--image {
-    max-width: 5rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
 }
 
 .flagged-comment-action {
@@ -36,7 +40,11 @@
     transition: .3s;
 }
 
-@media(min-width: 900px) {
+.flagged-comment--delete {
+    color: $birdeyAlert;
+}
+
+@media(min-width: 910px) {
     .flagged-comment {
         margin-bottom: 3rem;
         flex-direction: row-reverse;

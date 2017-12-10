@@ -11,22 +11,25 @@
             if(isLoggedIn()) {
                 
         ?>
-        Welcome Back, <span class="header--username"><?php echo $_SESSION['name']; ?></span>!
-    </div> <!-- /header -->
+        Welcome Back, <a class="header--text--link" id="header--frontpage-username" href="profile.php?id=<?php echo $_SESSION['user_id'] ?>"><?php echo $_SESSION['name']; ?></a>!
+        <p class="header--text">Start by checking out the <a class="header--text--link" href="gallery.php">Gallery</a>, or <a class="header--text--link" href=upload-art.php>post your own art!</a></p>
+
        
         <?php
             } else {
                 
         ?>
+        
         <p class="header--text">
            Welcome to Birdey Gallery! This is a site to showcase the art and photography of Birdeynamnam. Take a look around, and enjoy!
         </p> <!-- /header-text -->
         <p class="header--text">Start by checking out the <a class="header--text--link" href="gallery.php">Gallery</a>, or <a class="header--text--link" href="login.php">log in</a> to post your own art and post comments!</p>
-    </div> <!-- /header -->
        
         <?php
             }
         ?>
+
+    </div> <!-- /header -->
     
     <div class="main">
         <h3 class="main--heading">Recent Art Postings</h3>
@@ -36,7 +39,7 @@
                
                <?php
            //get the 4 most recent images from the database     
-                    $stmt = $db->prepare("SELECT * FROM ba_art LIMIT 4");
+                    $stmt = $db->prepare("SELECT * FROM ba_art ORDER BY art_id DESC LIMIT 4");
                     $stmt->execute();
 
                     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -45,20 +48,20 @@
                         $title = $row['art_title'];
                         $image = $row['image'];
                         
+            //get artist name
                         $stmtName = $db->prepare("SELECT * FROM ba_users WHERE user_id = :user_id");
-                        $stmtNAME->bindParam(':user_id', $artist_id);
+                        $stmtName->bindParam(':user_id', $artist_id);
                         $stmtName->execute();
 
                         while($row = $stmtName->fetch(PDO::FETCH_ASSOC)) {
                             $user_id = $row['user_id'];
                             $username = $row['username'];
                         }
-            //get artist name
                 ?>
                 
                 <div class="frontpage-images--image-wrapper">
-                    <a href=""><img class="frontpage-images--image" id="image-1" src="images/art/<?php echo $image; ?>"></a>
-                    <label><em><?php echo $title; ?></em> by <a class="frontpage-images--link" href="profile.php?user_id=<?php echo $user_id; ?>"><?php echo $username; ?></a></label>
+                    <a href="view-image.php?art_id=<?php echo $art_id; ?>"><img class="frontpage-images--image" id="image-1" src="images/art/<?php echo $image; ?>"></a>
+                    <label><a class="frontpage-images--link" href="view-image.php?art_id=<?php echo $art_id; ?>"><em><?php echo $title; ?></em></a> by <a class="frontpage-images--link" href="profile.php?id=<?php echo $user_id; ?>"><?php echo $username; ?></a></label>
                 </div> <!-- /frontpage-images--image-wrapper -->
                 
                 <?php

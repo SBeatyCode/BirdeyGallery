@@ -24,11 +24,12 @@
         }
     }
 
-    function checkFlagged() {
+    function checkFlagged($user_id) {
 //check for flagged comments, return 'true' if there are any
         global $db;
         
-        $stmt = $db->prepare("SELECT * FROM ba_comments");
+        $stmt = $db->prepare("SELECT * FROM ba_comments WHERE artist_id = :artist_id");
+        $stmt->bindParam(':artist_id', $user_id);
         $stmt->execute();
 
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {

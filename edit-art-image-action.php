@@ -4,7 +4,7 @@
 
 <?php
 
-    if(isset($_SESSION['art_id'] && $_SESSION['art_id'] != null) {
+    if(isset($_SESSION['art_id']) && $_SESSION['art_id'] != null) {
         $art_id = $_SESSION['art_id'];
     } else {
         header("Location: index.php");

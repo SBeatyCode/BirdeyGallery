@@ -9,3 +9,4 @@ let uploadArt = require('./modules/upload-art');
 let artInfo = require('./modules/art-info');
 let editArt = require('./modules/edit-art');
 let editArtImage = require('./modules/edit-art-image');
+let postComment = require('./modules/post-comment');

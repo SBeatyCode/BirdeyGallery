@@ -29,6 +29,7 @@
                         $_SESSION['user_id'] = $row['user_id'];
                         $_SESSION['username'] = $row['username'];
                         $_SESSION['name'] = $row['name'];
+                        $_SESSION['userImage'] = $row['image'];
 
                         //header("Location: index.php");
                         $loginFail = false;

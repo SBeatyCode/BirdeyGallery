@@ -41,11 +41,11 @@
                   
                   <div class='upload-section'>
                    <label class='upload-section--label' for="image">Choose a new image to upload: </label>
-                   <input type="file" name="image">
+                   <input type="file" name="image" id="image">
                 </div> <!-- /upload-section -->
                 
                 <div class='upload-buttons'>
-                    <button class="btn-birdey upload-buttons--btn" type="button" name="editArtImageSubmit">Submit</button>
+                    <button class="btn-birdey upload-buttons--btn" type="button" name="editArtImageSubmit" id="editArtImageSubmit">Submit</button>
                 </div> <!-- /upload-section -->
               </form>
             </div> <!-- /upload-wrapper -->
