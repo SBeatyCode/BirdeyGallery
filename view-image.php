@@ -108,6 +108,11 @@
                     </div>
             <?php
                 }
+                    if($db_artist_id == $_SESSION['user_id']) {
+            ?>
+                     <a class="btn-birdey-wrapper" id="deleteImage"><input type="button" class="btn-birdey-alert" value="Delete Art"></a>  
+            <?php
+                    }
             ?>
                     </div> <!-- /comment well-->
                     

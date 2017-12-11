@@ -157,6 +157,7 @@
               </form>
             </div> <!-- /upload-wrapper -->
         </div> <!-- /content -->
+        <script src="js/edit-profile.js"></script>
     </div> <!-- /main -->
     
 <?php

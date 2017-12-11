@@ -1,16 +1,8 @@
 <?php session_start(); ?>
 <?php include 'includes/config.php'; ?> 
-<?php include 'includes/header.php'; ?>
-<?php include 'includes/navbar.php'; ?>
+<?php include 'includes/functions.php'; ?>
 
-<div class="container" id="galleryContainer">
-    <div class="header" id="galleryHeader">
-        <header class="header--banner"><h1>Art Gallery</h1></header>
-        <p class="header--text">
-           View all uploaded artwork by all users!
-        </p> <!-- /header-text -->
-    </div> <!-- /header -->
-    
+
     <div class="main" id="galleryMain">
         <h3 class="main--heading">Gallery</h3>
         
@@ -38,8 +30,37 @@
             <div class="gallery-images">
                
             <?php
-           //get all images from the database     
-                    $stmt = $db->prepare("SELECT * FROM ba_art ORDER BY art_id DESC");
+            //checking to see which tag was selected, then passing that variable to the query to get only those images
+                
+                    if(isset($_POST['watercolor'])) {
+                        $tag = $_POST['watercolor'];
+                        
+                    } else if($_POST['painting']) {
+                        $tag = $_POST['painting'];
+                        
+                    } else if($_POST['pencil']) {
+                        $tag = $_POST['pencil'];
+                        
+                    } else if($_POST['pen_ink']) {
+                        $tag = $_POST['pen_ink'];
+                        
+                    } else if($_POST['digital']) {
+                        $tag = $_POST['digital'];
+                        
+                    } else if($_POST['pixel_art']) {
+                        $tag = $_POST['pixel_art'];
+                        
+                    } else if($_POST['photography']) {
+                        $tag = $_POST['photography'];
+                        
+                    } else if($_POST['other']) {
+                        $tag = $_POST['other'];
+                        
+                    } 
+                
+           //get the images from the database based on the chosexn tag    
+                    $stmt = $db->prepare("SELECT * FROM ba_art WHERE tag = :tag ORDER BY art_id DESC");
+                    $stmt->bindParam(':tag', $tag);
                     $stmt->execute();
 
                     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -68,8 +89,5 @@
                 
             </div> <!-- /gallery-images -->
         </div> <!-- /content -->
+        <script src="js/gallery.js"></script>
     </div> <!-- /main -->
-</div> <!-- /container -->
-
-
-<?php include 'includes/footer.php'; ?>

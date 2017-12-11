@@ -80,8 +80,9 @@
 //function to redirect users without the proper authentication on the password reset page.
         global $db;
         
-        $_SESSION['reset'] = null;
-        $_SESSION['reset-check'] = null;
+        $_SESSION['reset_id'] = null;
+        $_SESSION['resetPassword'] = null;
+        $_SESSION['reset-auth'] = null;
 
         session_unset();
         session_destroy();

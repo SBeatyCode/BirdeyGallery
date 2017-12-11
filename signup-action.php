@@ -160,6 +160,7 @@
               </form>
             </div> <!-- /upload-wrapper -->
         </div> <!-- /content -->
+        <script src="js/signup.js"></script>
     </div> <!-- /main -->
 
         <?php

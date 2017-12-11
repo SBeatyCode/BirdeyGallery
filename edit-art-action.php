@@ -47,4 +47,5 @@
         <div class="main--content">
             <a class="btn-birdey-wrapper" href="view-image.php?art_id=<?php echo $art_id; ?>"><input type="button" class="btn-birdey" value="View Art"></a>
         </div> <!-- /content-->
+        <script src="js/edit-art.js"></script>
     </div> <!-- /main -->

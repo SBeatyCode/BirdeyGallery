@@ -18,7 +18,8 @@
 }
 
 .frontpage-images--round--image {
-    max-width: 15.625rem;
+    height: 15.625rem;
+    width: 15.625rem;
     border-radius: 50%;
 }
 

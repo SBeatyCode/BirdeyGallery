@@ -141,6 +141,7 @@
             </div> <!-- /upload-wrapper -->
 
         </div> <!-- /content -->
+        <script src="js/upload-art.js"></script>
     </div> <!-- /main -->
        
     <?php

@@ -82,6 +82,9 @@ var artInfo = __webpack_require__(9);
 var editArt = __webpack_require__(10);
 var editArtImage = __webpack_require__(11);
 var postComment = __webpack_require__(12);
+var gallery = __webpack_require__(13);
+var deleteImage = __webpack_require__(14);
+var lostPassword = __webpack_require__(15);
 
 /***/ }),
 /* 1 */
@@ -213,7 +216,6 @@ $(document).ready(function () {
                 $('#signup-header').remove();
                 $('#signup-main').remove();
                 $('#signup-container').append(data);
-                window.scrollTo(0, 0);
             }).fail(function (data) {
                 alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
                 console.log(data.statusText);
@@ -296,7 +298,6 @@ $(document).ready(function () {
                 $('#editProfileHeader').remove();
                 $('#editProfileMain').remove();
                 $('#editProfileContainer').append(data);
-                window.scrollTo(0, 0);
             }).fail(function (data) {
                 alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
                 console.log(data.statusText);
@@ -335,7 +336,6 @@ $(document).ready(function () {
             $('#profileImageHeader').remove();
             $('#profileImageMain').remove();
             $('#profileImageContainer').append(data);
-            window.scrollTo(0, 0);
         }).fail(function (data) {
             alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
             console.log(data.statusText);
@@ -392,7 +392,6 @@ $(document).ready(function () {
                 $('#loginHeader').remove();
                 $('#loginMain').remove();
                 $('#loginContainer').append(data);
-                window.scrollTo(0, 0);
             }).fail(function (data) {
                 alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
                 console.log(data.statusText);
@@ -431,7 +430,6 @@ $(document).ready(function () {
             $('#uploadArtHeader').remove();
             $('#uploadArtMain').remove();
             $('#uploadArtContainer').append(data);
-            window.scrollTo(0, 0);
         }).fail(function (data) {
             alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
             console.log(data.statusText);
@@ -487,7 +485,6 @@ $(document).ready(function () {
                 $('#uploadArtHeader').remove();
                 $('#artInfoHeader').remove();
                 $('#uploadArtContainer').append(data);
-                window.scrollTo(0, 0);
             }).fail(function (data) {
                 alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
                 console.log(data.statusText);
@@ -547,7 +544,6 @@ $(document).ready(function () {
                 $('#editArtHeader').remove();
                 $('#editArtMain').remove();
                 $('#editArtContainer').append(data);
-                window.scrollTo(0, 0);
             }).fail(function (data) {
                 alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
                 console.log(data.statusText);
@@ -585,7 +581,6 @@ $(document).ready(function () {
             $('#editArtImageHeader').remove();
             $('#editArtImageMain').remove();
             $('#editArtImageContainer').append(data);
-            window.scrollTo(0, 0);
         }).fail(function (data) {
             alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
             console.log(data.statusText);
@@ -620,6 +615,288 @@ $(document).ready(function () {
             console.log(data);
             window.scrollTo(0, 0);
         });
+    });
+});
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+$(document).ready(function () {
+    //set event listeners for each filter to listen for clicks, and to send an AJAX call
+    $('#watercolor').click(function () {
+        $.ajax({
+            method: "POST",
+            url: "gallery-action.php",
+            data: { watercolor: 'Watercolor' },
+            cache: false
+        }).done(function (data) {
+            $('#galleryMain').remove();
+            $('#galleryContainer').append(data);
+        }).fail(function (data) {
+            alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+            console.log(data.statusText);
+            console.log(data);
+            window.scrollTo(0, 0);
+        });
+    });
+
+    $('#painting').click(function () {
+        $.ajax({
+            method: "POST",
+            url: "gallery-action.php",
+            data: { painting: 'Painting' },
+            cache: false
+        }).done(function (data) {
+            $('#galleryMain').remove();
+            $('#galleryContainer').append(data);
+        }).fail(function (data) {
+            alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+            console.log(data.statusText);
+            console.log(data);
+            window.scrollTo(0, 0);
+        });
+    });
+
+    $('#pencil').click(function () {
+        $.ajax({
+            method: "POST",
+            url: "gallery-action.php",
+            data: { pencil: 'Pencil' },
+            cache: false
+        }).done(function (data) {
+            $('#galleryMain').remove();
+            $('#galleryContainer').append(data);
+        }).fail(function (data) {
+            alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+            console.log(data.statusText);
+            console.log(data);
+            window.scrollTo(0, 0);
+        });
+    });
+
+    $('#pen_ink').click(function () {
+        $.ajax({
+            method: "POST",
+            url: "gallery-action.php",
+            data: { pen_ink: 'Pen/Ink' },
+            cache: false
+        }).done(function (data) {
+            $('#galleryMain').remove();
+            $('#galleryContainer').append(data);
+        }).fail(function (data) {
+            alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+            console.log(data.statusText);
+            console.log(data);
+            window.scrollTo(0, 0);
+        });
+    });
+
+    $('#digital').click(function () {
+        $.ajax({
+            method: "POST",
+            url: "gallery-action.php",
+            data: { digital: 'Digital' },
+            cache: false
+        }).done(function (data) {
+            $('#galleryMain').remove();
+            $('#galleryContainer').append(data);
+        }).fail(function (data) {
+            alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+            console.log(data.statusText);
+            console.log(data);
+            window.scrollTo(0, 0);
+        });
+    });
+
+    $('#pixel_art').click(function () {
+        $.ajax({
+            method: "POST",
+            url: "gallery-action.php",
+            data: { pixel_art: 'Pixel Art' },
+            cache: false
+        }).done(function (data) {
+            $('#galleryMain').remove();
+            $('#galleryContainer').append(data);
+        }).fail(function (data) {
+            alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+            console.log(data.statusText);
+            console.log(data);
+            window.scrollTo(0, 0);
+        });
+    });
+
+    $('#photography').click(function () {
+        $.ajax({
+            method: "POST",
+            url: "gallery-action.php",
+            data: { photography: 'Photography' },
+            cache: false
+        }).done(function (data) {
+            $('#galleryMain').remove();
+            $('#galleryContainer').append(data);
+        }).fail(function (data) {
+            alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+            console.log(data.statusText);
+            console.log(data);
+            window.scrollTo(0, 0);
+        });
+    });
+
+    $('#other').click(function () {
+        $.ajax({
+            method: "POST",
+            url: "gallery-action.php",
+            data: { other: 'Other' },
+            cache: false
+        }).done(function (data) {
+            console.log('Other clicked');
+            $('#galleryMain').remove();
+            $('#galleryContainer').append(data);
+        }).fail(function (data) {
+            alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+            console.log(data.statusText);
+            console.log(data);
+            window.scrollTo(0, 0);
+        });
+    });
+});
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+$(document).ready(function () {
+    //delete an image - only possible is the user is the one viewing their artwork. checks for confirmation first.
+    $('#deleteImage').click(function () {
+        var deleteConfirm = confirm("Are you sure you want to delete this image?");
+        if (deleteConfirm) {
+            $.ajax({
+                type: "POST",
+                url: "view-image-delete.php",
+                data: { delete: 'true' },
+                cache: false
+            }).done(function (data) {
+                $('#viewImageHeader').remove();
+                $('#viewImageMain').remove();
+                $('#viewImageContainer').append(data);
+            }).fail(function (data) {
+                alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+                console.log(data.statusText);
+                console.log(data);
+                window.scrollTo(0, 0);
+            });
+        }
+    });
+});
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+$(document).ready(function () {
+    //variable to check if the fields on the form has been validated. Only run AJAX call if it's true
+    var formsValidated = 0;
+
+    //function to see if a given form element is empty or not, takes an input, and a label
+    var validateForm = function validateForm(formElement, errorElement) {
+        if (formElement.trim() == "") {
+            errorElement.html('*~~ You must enter a value in the field. ~~*');
+            return false;
+        } else {
+            errorElement.html('');
+            return true;
+        }
+    };
+
+    //page one of the lost-password process, once the button is clicked
+
+    $('#lostPasswordSubmit').click(function () {
+        //validate all the fields
+        if (validateForm($('#lostUsername').val(), $('#lost-username-error'))) {
+            formsValidated += 1;
+        }
+
+        if (validateForm($('#lost-dob').val(), $('#lost-dob-error'))) {
+            formsValidated += 1;
+        }
+
+        //if the forms are validated, then process the AJAX request.
+        if (formsValidated == 2) {
+            $.ajax({
+                method: "POST",
+                url: "lost-password-action.php", //signup-action.php
+                data: $('#lostPasswordForm').serialize(),
+                cache: false
+            }).done(function (data) {
+                $('#lostPasswordMain').remove();
+                $('#lostPasswordContainer').append(data);
+            }).fail(function (data) {
+                alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+                console.log(data.statusText);
+                console.log(data);
+                window.scrollTo(0, 0);
+            });
+            //reset the validation counter so it can't be resuubmitted over and over
+            formsValidated = 0;
+        } else {
+            //forms not validated
+            formsValidated = 0;
+        }
+
+        formsValidated = 0;
+    });
+
+    //page two of the lost-password process, once the button is clicked
+
+    $('#lostPasswordActionSubmit').click(function () {
+        //validate all the fields
+        if (validateForm($('#lost-fave_pet').val(), $('#lost-fave-pet-error'))) {
+            formsValidated += 1;
+        }
+
+        if (validateForm($('#lost-fave_food').val(), $('#lost-fave-food-error'))) {
+            formsValidated += 1;
+        }
+
+        if (validateForm($('#lost-born_at').val(), $('#lost-born-at-error'))) {
+            formsValidated += 1;
+        }
+
+        //if the forms are validated, then process the AJAX request.
+        if (formsValidated == 3) {
+            $.ajax({
+                method: "POST",
+                url: "reset-password.php", //signup-action.php
+                data: $('#lostPassActionForm').serialize(),
+                cache: false
+            }).done(function (data) {
+                if ($('#lostPasswordMain') != undefined || $('#lostPasswordMain') != null) {
+                    $('#lostPasswordMain').remove();
+                }
+                $('#lostPasswordActionMain').remove();
+                $('#lostPasswordContainer').append(data);
+            }).fail(function (data) {
+                alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+                console.log(data.statusText);
+                console.log(data);
+                window.scrollTo(0, 0);
+            });
+            //reset the validation counter so it can't be resuubmitted over and over
+            formsValidated = 0;
+        } else {
+            //forms not validated
+            formsValidated = 0;
+        }
     });
 });
 

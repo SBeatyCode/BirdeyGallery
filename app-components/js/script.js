@@ -10,3 +10,6 @@ let artInfo = require('./modules/art-info');
 let editArt = require('./modules/edit-art');
 let editArtImage = require('./modules/edit-art-image');
 let postComment = require('./modules/post-comment');
+let gallery = require('./modules/gallery');
+let deleteImage = require('./modules/deleteImage');
+let lostPassword = require('./modules/lost-password');

@@ -36,8 +36,9 @@ $(document).ready(function() {
             })
             .done(function(data) {
                 $('#artInfoMain').remove();
-                $('.container').append(data);
-                window.scrollTo(0, 0);
+                $('#uploadArtHeader').remove();
+                $('#artInfoHeader').remove();
+                $('#uploadArtContainer').append(data);
             })
             .fail(function(data) {
                 alert('Something went wrong with the server request. Please try again, or contact the network administrator.');

@@ -46,7 +46,7 @@
                             <option>Pen/Ink</option>
                             <option>Digital</option>
                             <option>Pixel</option>
-                            <option>Photograghy</option>
+                            <option>Photography</option>
                             <option>Other</option>
                         </select>
                     </div> <!-- /upload-section -->

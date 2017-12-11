@@ -80,6 +80,7 @@
               </form>
             </div> <!-- /upload-wrapper -->
         </div> <!-- /content -->
+        <script src="js/edit-art-image.js"></script>
     </div> <!-- /main -->
    
 <?php

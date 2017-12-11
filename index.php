@@ -21,7 +21,7 @@
         ?>
         
         <p class="header--text">
-           Welcome to Birdey Gallery! This is a site to showcase the art and photography of Birdeynamnam. Take a look around, and enjoy!
+           Welcome to Birdey Gallery! This is a site to share your art, and to discover the art posted by others! Take a look around, and enjoy!
         </p> <!-- /header-text -->
         <p class="header--text">Start by checking out the <a class="header--text--link" href="gallery.php">Gallery</a>, or <a class="header--text--link" href="login.php">log in</a> to post your own art and post comments!</p>
        

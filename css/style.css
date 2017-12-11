@@ -566,8 +566,8 @@ body {
     background: -webkit-gradient(linear, left top, left bottom, from(darkgreen), to(#12a517));
     background: linear-gradient(darkgreen, #12a517); 
     color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: .3s;
+    transition: .3s;
 }
 
 .btn-birdey:active {
@@ -578,6 +578,35 @@ body {
 .btn-birdey:focus {
     color: #fff;
     background-color: darkgreen;
+    text-shadow: none;
+}
+
+.btn-birdey-alert {
+    color: #fff;
+    background-color:  #a50000;
+    text-shadow: none;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    padding: .5rem;
+}
+
+.btn-birdey-alert:hover {
+    background: -webkit-gradient(linear, left top, left bottom, from(red), to(#a50000));
+    background: linear-gradient(red, #a50000); 
+    color: white;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.btn-birdey-alert:active {
+    position: relative;
+    top: 2px;
+}
+
+.btn-birdey-alert:focus {
+    color: #fff;
+    background-color: darkred;
     text-shadow: none;
 }
 
@@ -820,7 +849,8 @@ body {
 }
 
 .frontpage-images--round--image {
-    max-width: 15.625rem;
+    height: 15.625rem;
+    width: 15.625rem;
     border-radius: 50%;
 }
 

@@ -86,6 +86,7 @@
                 </form> <!-- /profileImageForm -->
                 <a class="btn-birdey-wrapper" href="edit-profile.php"><input type="button" class="btn-birdey" value="Edit Profile"></a>
             </div> <!-- /content -->
+            <script src="js/profile-image.js"></script>
         </div> <!-- /main -->                           
 <?php
         }

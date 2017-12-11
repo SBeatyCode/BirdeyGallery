@@ -1,30 +1,25 @@
-edit-art image
+need to do the JS (lost-password.js) for reset-password, and need to make lost-password action.
 
-Make it so users can add comments on artwork
+test lost-password system.
 
-art info and edit art - make it so that the tag info is seen by PHP! rn it's NOT getting uploaded
+PUSH ONLINE =D
 
-notifications
+Under lost password action submit, and reset, the if lostpasswordmain != undefined||null MIGHT make a problem
+so if you get an error in the JS that MIGHT be why, assuming it's not just a typo lmao =P
 
-home, gallery - need to be pulling images from the database
 
-gallery - infinite scroll
 
 TEST ALL THE ART PAGES (in progress)
 
---Check Edit Art and Upload art, and make sure there are default values for the fields that aren't required.
-
-Comments System
-
-Infinite Scroll
-
 Lost Password
-
-
 May need to make
 -lostPassword/passwordRest Pages
 -instead of edit-comment, user's can just edit their own comment when they come across a comment they've posted
 
+--Check Edit Art and Upload art, and make sure there are default values for the fields that aren't required.
+
+
+gallery - infinite scroll [ONLY if you have enough time]
 
 Index
 -either the tree most recent, or the three most 'liked' if I decide to implement that are show on the front

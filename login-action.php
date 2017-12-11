@@ -92,6 +92,7 @@
         <div class="main--content">
             <a class="btn-birdey-wrapper" href="index.php"><input type="button" class="btn-birdey" value="Home"></a>
         </div> <!-- /content -->
+        <script src="js/login.js"></script>
      </div> <!-- /main -->
        
     <?php
