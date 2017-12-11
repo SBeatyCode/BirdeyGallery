@@ -15,7 +15,7 @@ $(document).ready(function() {
 
 //page one of the lost-password process, once the button is clicked
     
-    $('#lostPasswordSubmit').click( function() { 
+    $('#lostPasswordSubmit').click( function() {
 //validate all the fields
         if(validateForm($('#lostUsername').val(), $('#lost-username-error'))) {
             formsValidated += 1;
@@ -26,7 +26,7 @@ $(document).ready(function() {
         }
         
     //if the forms are validated, then process the AJAX request.
-        if(formsValidated == 2) {      
+        if(formsValidated == 2) {
             $.ajax({
                 method: "POST",
                 url: "lost-password-action.php", //signup-action.php
@@ -98,5 +98,61 @@ $(document).ready(function() {
         //forms not validated
             formsValidated = 0;
         }
+        
+        formsValidated = 0;
+    });
+    
+    //page three of the lost-password process, once the button is clicked
+    
+    $('#resetPasswordSubmit').click( function() {
+        //validate all the fields
+        if(validateForm($('#reset-password').val(), $('#reset-password-error'))) {
+            formsValidated += 1;
+        }
+//        
+//        if(validateForm($('#reset-password-confirm').val(), $('#reset-password-confirm-error'))) {
+//            formsValidated += 1;
+//        }
+        
+//        if($('#reset-password').val() == $('#reset-password-confirm').val()) {
+                //if the forms are validated, then process the AJAX request.
+            if(formsValidated == 1) {      
+                $.ajax({
+                    method: "POST",
+                    url: "reset-password-action.php", //signup-action.php
+                    data: $('#resetPassForm').serialize(),
+                    cache: false
+                })
+                .done(function(data) {
+                    if($('#lostPasswordMain') != undefined || $('#lostPasswordMain') != null ) {
+                        $('#lostPasswordMain').remove();
+                    }
+
+                    if($('#lostPasswordActionMain') != undefined || $('#lostPasswordMain') != null ) {
+                        $('#lostPasswordActionMain').remove();
+                    }
+
+                    $('#resetPasswordMain').remove();
+                    $('#lostPasswordHeader').remove();
+                    $('#lostPasswordContainer').append(data);
+                })
+                .fail(function(data) {
+                    alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+                    console.log(data.statusText);
+                    console.log(data);
+                    window.scrollTo(0, 0);
+                })
+            //reset the validation counter so it can't be resuubmitted over and over
+                formsValidated = 0;
+
+            } else {
+            //forms not validated
+                formsValidated = 0;
+            }
+//        } else {
+//            console.log('passwords donut match');
+//            $('#reset-password-match-error').html('*~~ The passwords must match. Please try again. ~~*');
+//            formsValidated = 0;
+//        }
     });
 });

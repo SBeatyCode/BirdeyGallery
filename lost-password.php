@@ -3,7 +3,7 @@
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/navbar.php'; ?>
 
-<div class="container" class="lostPasswordContainer">
+<div class="container" id="lostPasswordContainer">
     <div class="header" class="lostPasswordHeader">
         <header class="header--banner"><h1>Lost Password</h1></header>
         <p class="header--text">
@@ -11,7 +11,7 @@
         </p> <!-- /header-text -->
     </div> <!-- /header -->
     
-    <div class="main" class="lostPasswordMain">
+    <div class="main" id="lostPasswordMain">
         <h3 class="main--heading">Give us your username and your date of birth, and we'll try to find you.</h3>
 
         <div class="main--content">
@@ -28,7 +28,7 @@
                     <input type="date" class="date" name="dob" id='lost-dob'>
                 </div> <!-- /upload-section -->
 
-                <button class="btn-birdey" id='login-form-button' type="button" name="submit" id="lostPasswordSubmit">Submit</button>
+                <button class="btn-birdey" type="button" name="submit" id="lostPasswordSubmit">Submit</button>
             </form> <!-- /loginForm -->
         </div> <!-- /content -->
     </div> <!-- /main -->

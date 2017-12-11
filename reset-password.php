@@ -3,8 +3,8 @@
 <?php include 'includes/functions.php'; ?>
 
 <?php
-    if(isset($_SESSION['resetPassword'] && $_SESSION['resetPassword'] != null)) {
-        if(isset($_SESSION['reset_id'] && $_SESSION['reset_id'] != null)) {
+    if(isset($_SESSION['resetPassword']) && $_SESSION['resetPassword'] == true) {
+        if(isset($_SESSION['reset_id']) && $_SESSION['reset_id'] != null) {
             $user_id = $_SESSION['reset_id'];
         }else {
             resetRedirect();
@@ -28,7 +28,7 @@
         $db_born_at = $row['born_at'];
     }
 //compared the values that were entered to the ones stored in the database
-    if( password_verify($fave_pet, $db_fave_pet) && password_verify($fave_food, $db_fave_food) && password_verify($born_at, $db_born_at) && password_verify($to_visit, $db_to_visit) ) {
+    if( password_verify($fave_pet, $db_fave_pet) && password_verify($fave_food, $db_fave_food) && password_verify($born_at, $db_born_at) ) {
         
         $_SESSION['reset-auth'] = true;
         $noErrorsReset = true;
@@ -40,22 +40,16 @@
     if($noErrorsReset) {
 ?>
    
-    <div class="main" class="resetPasswordMain">
-        <h3 class="main--heading">Found you! Now just answer your security questions, and you can reset your password.</h3>
+    <div class="main" id="resetPasswordMain">
+        <h3 class="main--heading">Great, now we know it's really you. Go ahead and reset your password now!</h3>
 
         <div class="main--content">
-            <form enctype="multipart/form-data" method="post" name="resetPassForm" id="lostPassActionForm">
-                    <div class='upload-section'>
-                        <label class='upload-section--label' for="password">Password</label>
-                        <label class='error-message' id='reset-password-error'></label>
-                        <input type="password" placeholder="Password" name="password" id='reset-password'>
-                    </div> <!-- /upload-section -->
-                    
-                    <div class='upload-section'>
-                        <label class='upload-section--label' for="password">Password</label>
-                        <label class='error-message' id='reset-password-confirm-error'></label>
-                        <input type="password" placeholder="Password" name="passwordCheck" id='reset-password-confirm'>
-                    </div> <!-- /upload-section -->
+            <form enctype="multipart/form-data" method="post" name="resetPassForm" id="resetPassForm">
+                <div class='upload-section'>
+                    <label class='upload-section--label' for="password">Password</label>
+                    <label class='error-message' id='reset-password-error'></label>
+                    <input type="password" placeholder="Password" name="password" id='reset-password'>
+                </div> <!-- /upload-section -->
 
                 <div class='upload-buttons'>
                     <button class="btn-birdey upload-buttons--btn" type="reset" name="reset">Reset</button>

@@ -30,7 +30,7 @@
                 <button class="btn-birdey" id='login-form-button' type="button" name="submit">Submit</button>
             </form> <!-- /loginForm -->
             <p>
-                Don't remember your password? <a class='upload--link' href="lost-password.php">Click Here</a>
+                Don't remember your password? <a class='upload--link' href="lost-password.php">Click Here</a>!
             </p>
         </div> <!-- /content -->
     </div> <!-- /main -->

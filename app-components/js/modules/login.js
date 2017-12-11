@@ -3,7 +3,7 @@ $(document).ready(function() {
     let formsValidated = 0;
     
     //function to see if a given form element is empty or not, takes an input, and a label
-    let validateForm = (formElement, errorElement) => {
+    let validateFormLogin = (formElement, errorElement) => {
         if (formElement.trim() == "") {
             errorElement.html('*~~ You must enter a value in the field. ~~*');
             return false;
@@ -16,11 +16,11 @@ $(document).ready(function() {
     //validate all the fields
     
     $('#login-form-button').click( function() { 
-        if(validateForm($('#loginUsername').val(), $('#username-login-error'))) {
+        if(validateFormLogin($('#loginUsername').val(), $('#username-login-error'))) {
             formsValidated += 1;
         }
         
-        if(validateForm($('#loginPassword').val(), $('#password-login-error'))) {
+        if(validateFormLogin($('#loginPassword').val(), $('#password-login-error'))) {
             formsValidated += 1;
         }
         

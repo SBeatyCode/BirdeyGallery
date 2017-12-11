@@ -34,7 +34,7 @@
     if($noErrors) {
 ?>
    
-    <div class="main" class="lostPasswordActionMain">
+    <div class="main" id="lostPasswordActionMain">
         <h3 class="main--heading">Found you! Now just answer your security questions, and you can reset your password.</h3>
 
         <div class="main--content">

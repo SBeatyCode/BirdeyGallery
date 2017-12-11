@@ -70,37 +70,23 @@
 "use strict";
 
 
-var functions = __webpack_require__(1);
-var DatePicker = __webpack_require__(2);
-var navbarMenu = __webpack_require__(3);
-var signup = __webpack_require__(4);
-var editProfile = __webpack_require__(5);
-var profileImage = __webpack_require__(6);
-var login = __webpack_require__(7);
-var uploadArt = __webpack_require__(8);
-var artInfo = __webpack_require__(9);
-var editArt = __webpack_require__(10);
-var editArtImage = __webpack_require__(11);
-var postComment = __webpack_require__(12);
-var gallery = __webpack_require__(13);
-var deleteImage = __webpack_require__(14);
-var lostPassword = __webpack_require__(15);
+var DatePicker = __webpack_require__(1);
+var navbarMenu = __webpack_require__(2);
+var signup = __webpack_require__(3);
+var editProfile = __webpack_require__(4);
+var profileImage = __webpack_require__(5);
+var uploadArt = __webpack_require__(6);
+var artInfo = __webpack_require__(7);
+var editArt = __webpack_require__(8);
+var editArtImage = __webpack_require__(9);
+var postComment = __webpack_require__(10);
+var gallery = __webpack_require__(11);
+var deleteImage = __webpack_require__(12);
+var lostPassword = __webpack_require__(13);
+var login = __webpack_require__(14);
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var functions = function functions() {
-    _classCallCheck(this, functions);
-};
-
-/***/ }),
-/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -116,7 +102,7 @@ $(document).ready(function () {
 });
 
 /***/ }),
-/* 3 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -149,7 +135,7 @@ var toggleMenu = function toggleMenu() {
 menuButton.addEventListener('click', toggleMenu);
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -232,7 +218,7 @@ $(document).ready(function () {
 });
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -256,9 +242,6 @@ $(document).ready(function () {
     //validate all the fields
 
     $('#editProfileSubmit').click(function () {
-
-        console.log('hey clickboy');
-
         if (validateForm($('#editProfileName').val(), $('#name-error'))) {
             formsValidated += 1;
         }
@@ -314,7 +297,7 @@ $(document).ready(function () {
 });
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -346,69 +329,7 @@ $(document).ready(function () {
 });
 
 /***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-$(document).ready(function () {
-    //variable to check if the fields on the form has been validated. Only run AJAX call if it's true
-    var formsValidated = 0;
-
-    //function to see if a given form element is empty or not, takes an input, and a label
-    var validateForm = function validateForm(formElement, errorElement) {
-        if (formElement.trim() == "") {
-            errorElement.html('*~~ You must enter a value in the field. ~~*');
-            return false;
-        } else {
-            errorElement.html('');
-            return true;
-        }
-    };
-
-    //validate all the fields
-
-    $('#login-form-button').click(function () {
-        if (validateForm($('#loginUsername').val(), $('#username-login-error'))) {
-            formsValidated += 1;
-        }
-
-        if (validateForm($('#loginPassword').val(), $('#password-login-error'))) {
-            formsValidated += 1;
-        }
-
-        //if the forms are validated, then process the AJAX request.
-        if (formsValidated == 2) {
-            //submit the form, then make the ajax call
-            $('#loginForm').submit();
-
-            $.ajax({
-                method: "POST",
-                url: "login-action.php", //signup-action.php
-                data: $('#loginForm').serialize(),
-                cache: false
-            }).done(function (data) {
-                $('#loginHeader').remove();
-                $('#loginMain').remove();
-                $('#loginContainer').append(data);
-            }).fail(function (data) {
-                alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
-                console.log(data.statusText);
-                console.log(data);
-                window.scrollTo(0, 0);
-            });
-            //reset the validation counter so it can't be resuubmitted over and over
-            formsValidated = 0;
-        } else {
-            //forms not validated
-            formsValidated = 0;
-        }
-    });
-});
-
-/***/ }),
-/* 8 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -440,7 +361,7 @@ $(document).ready(function () {
 });
 
 /***/ }),
-/* 9 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -501,7 +422,7 @@ $(document).ready(function () {
 });
 
 /***/ }),
-/* 10 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -560,7 +481,7 @@ $(document).ready(function () {
 });
 
 /***/ }),
-/* 11 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -591,7 +512,7 @@ $(document).ready(function () {
 });
 
 /***/ }),
-/* 12 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -619,7 +540,7 @@ $(document).ready(function () {
 });
 
 /***/ }),
-/* 13 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -753,7 +674,6 @@ $(document).ready(function () {
             data: { other: 'Other' },
             cache: false
         }).done(function (data) {
-            console.log('Other clicked');
             $('#galleryMain').remove();
             $('#galleryContainer').append(data);
         }).fail(function (data) {
@@ -766,7 +686,7 @@ $(document).ready(function () {
 });
 
 /***/ }),
-/* 14 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -797,7 +717,7 @@ $(document).ready(function () {
 });
 
 /***/ }),
-/* 15 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -885,6 +805,110 @@ $(document).ready(function () {
                 }
                 $('#lostPasswordActionMain').remove();
                 $('#lostPasswordContainer').append(data);
+            }).fail(function (data) {
+                alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+                console.log(data.statusText);
+                console.log(data);
+                window.scrollTo(0, 0);
+            });
+            //reset the validation counter so it can't be resuubmitted over and over
+            formsValidated = 0;
+        } else {
+            //forms not validated
+            formsValidated = 0;
+        }
+
+        formsValidated = 0;
+    });
+
+    //page three of the lost-password process, once the button is clicked
+
+    $('#resetPasswordSubmit').click(function () {
+        //validate all the fields
+        if (validateForm($('#reset-password').val(), $('#reset-password-error'))) {
+            formsValidated += 1;
+        }
+        //if the forms are validated, then process the AJAX request.
+        if (formsValidated == 1) {
+            $.ajax({
+                method: "POST",
+                url: "reset-password-action.php", //signup-action.php
+                data: $('#resetPassForm').serialize(),
+                cache: false
+            }).done(function (data) {
+                if ($('#lostPasswordMain') != undefined || $('#lostPasswordMain') != null) {
+                    $('#lostPasswordMain').remove();
+                }
+
+                if ($('#lostPasswordActionMain') != undefined || $('#lostPasswordMain') != null) {
+                    $('#lostPasswordActionMain').remove();
+                }
+
+                $('#resetPasswordMain').remove();
+                $('#lostPasswordHeader').remove();
+                $('#lostPasswordContainer').append(data);
+            }).fail(function (data) {
+                alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
+                console.log(data.statusText);
+                console.log(data);
+                window.scrollTo(0, 0);
+            });
+            //reset the validation counter so it can't be resuubmitted over and over
+            formsValidated = 0;
+        } else {
+            //forms not validated
+            formsValidated = 0;
+        }
+    });
+});
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+$(document).ready(function () {
+    //variable to check if the fields on the form has been validated. Only run AJAX call if it's true
+    var formsValidated = 0;
+
+    //function to see if a given form element is empty or not, takes an input, and a label
+    var validateFormLogin = function validateFormLogin(formElement, errorElement) {
+        if (formElement.trim() == "") {
+            errorElement.html('*~~ You must enter a value in the field. ~~*');
+            return false;
+        } else {
+            errorElement.html('');
+            return true;
+        }
+    };
+
+    //validate all the fields
+
+    $('#login-form-button').click(function () {
+        if (validateFormLogin($('#loginUsername').val(), $('#username-login-error'))) {
+            formsValidated += 1;
+        }
+
+        if (validateFormLogin($('#loginPassword').val(), $('#password-login-error'))) {
+            formsValidated += 1;
+        }
+
+        //if the forms are validated, then process the AJAX request.
+        if (formsValidated == 2) {
+            //submit the form, then make the ajax call
+            $('#loginForm').submit();
+
+            $.ajax({
+                method: "POST",
+                url: "login-action.php", //signup-action.php
+                data: $('#loginForm').serialize(),
+                cache: false
+            }).done(function (data) {
+                $('#loginHeader').remove();
+                $('#loginMain').remove();
+                $('#loginContainer').append(data);
             }).fail(function (data) {
                 alert('Something went wrong with the server request. Please try again, or contact the network administrator.');
                 console.log(data.statusText);

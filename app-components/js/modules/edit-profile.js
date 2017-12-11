@@ -16,9 +16,6 @@ $(document).ready(function() {
     //validate all the fields
     
     $('#editProfileSubmit').click( function() {
-        
-        console.log('hey clickboy');
-        
         if(validateForm($('#editProfileName').val(), $('#name-error'))) {
             formsValidated += 1;
         }

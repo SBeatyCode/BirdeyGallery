@@ -141,7 +141,6 @@ $(document).ready(function() {
             cache: false
         })
         .done(function(data) {
-            console.log('Other clicked');
             $('#galleryMain').remove();
             $('#galleryContainer').append(data);
         })

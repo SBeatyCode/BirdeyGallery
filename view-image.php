@@ -149,10 +149,9 @@
 
             <!-- Pulling comments from the database  -->
                        <div class="image-view-read-comments--comment-wrapper">
-                           <?php #echo $image; ?>
                            <textarea class="responsive-textarea image-view-read-comments--textarea" readonly value=""><?php echo $comment; ?></textarea>
                             <div class="image-view-read-comments--commenter-info">
-                                <img class="image-view-read-comments--commenter-image" src="images/profilePics/<?php echo $_SESSION['userImage']; ?>">
+                                <img class="image-view-read-comments--commenter-image" src="images/profilePics/<?php echo $image; ?>">
                                 
                                 <span class="image-view--text"><i class="fa fa-user-circle" aria-hidden="true"></i> <a class="image-view--commenter-profile-link" href="profile.php?id=<?php echo $commenter_id; ?>"><?php echo $user; ?></a></span>&nbsp;
                                 

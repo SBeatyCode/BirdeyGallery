@@ -68,20 +68,8 @@
                     }
                 
                 ?>
-
-                
-<!--
-                <div class="frontpage-images--image-wrapper">
-                    <a href=""><img class="frontpage-images--image" id="image-2" src="images/art/birbsPage.jpg"></a>
-                    <label>'KK Slider' by <a class="frontpage-images--link" href="">Nintendo</a></label>
-                </div>  /frontpage-images--image-wrapper 
--->
                 
             </div> <!-- /frontpage-images -->
-            
-            <p>
-                This is a paragragh that talks a little bit more about the site, maybe!
-            </p>
         </div> <!-- /content -->
     </div> <!-- /main -->
 </div> <!-- /container -->

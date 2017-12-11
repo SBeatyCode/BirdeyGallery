@@ -3,6 +3,14 @@
 <?php include 'includes/header.php'; ?>
 <?php include 'includes/navbar.php'; ?>
 
+<?php
+
+    if(!isLoggedIn()) {
+        header("Location: index.php");
+    }
+
+?>
+
 <div class="container" id="notificationsContainer">
     <div class="header" id="notificationsHeader">
         <header class="header--banner"><h1>Notifications</h1></header>
